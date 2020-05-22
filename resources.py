@@ -20,6 +20,28 @@ resultSet['nombreEquipo'] = nombreEquipo.strip()
 
 ##################################################################################################
 
+usuariosDict={}
+archivoUsusarios = open('/etc/passwd')
+for usuarioRow in archivoUsusarios:
+    usuarioRow = usuarioRow.split(":")
+    usuarioDict={}
+    usuarioDict["nombre"] = usuarioRow[0] 
+    GECOS = usuarioRow[4].split(",")
+    try:
+        usuarioDict["nombreCompleto"] = GECOS[0] 
+        usuarioDict["noHab"] = GECOS[1] 
+        usuarioDict["telOficina"] = GECOS[2] 
+        usuarioDict["telCasa"] = GECOS[3] 
+        usuarioDict["otros"] = GECOS[4]
+    except:
+        pass
+    usuariosDict[usuarioRow[2]] = usuarioDict
+usuariosDict["usuarios"] = usuarioDict 
+
+resultSet['usuarios'] = usuariosDict
+
+##################################################################################################
+
 p = subprocess.Popen ("hostname -I", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 #Se espera que acabe el subproceso para mostrar la salida decodificada
 p.wait()
