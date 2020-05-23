@@ -5,7 +5,7 @@
 # Autor: Sebastian Montes
 # Licencia GNU GPL v4
 
-import subprocess, re, sys
+import subprocess, re, sys, os
 
 # Función que retorna el nombre del host o máquina actual
 def getHostname():
@@ -17,12 +17,18 @@ def getHostname():
     return nombreEquipo.strip()
 
 # Función que retorna un diccionario de diccionarios de usuarios cuya UID es la llave de un diccionario
-def getUsuarios():
+# Recibe como parámetro una opción "a" en la cual se indica si se desean todos los usuarios o "r" 
+# si solo se desean los "reales" 
+def getAllUsers(opcion):
 
     usuariosDict={}
     archivoUsusarios = open('/etc/passwd')
     for usuarioRow in archivoUsusarios:
+        
         usuarioRow = usuarioRow.split(":")
+        if(opcion == 'r' and \
+        not isPathInHome(usuarioRow[5])):
+            continue
         usuarioDict={}
         usuarioDict["nombre"] = usuarioRow[0] 
         GECOS = usuarioRow[4].split(",")
@@ -34,9 +40,21 @@ def getUsuarios():
             usuarioDict["otros"] = GECOS[4]
         except:
             pass
-        usuariosDict[usuarioRow[2]] = usuarioDict
-    usuariosDict["usuarios"] = usuarioDict 
+        usuariosDict[usuarioRow[2]] = usuarioDict 
     return usuariosDict
+
+# Función auxiliar que define si una ruta /home/[usuario] 
+# del campo GECOS existe en realidad en el directorio /home
+def isPathInHome(path):
+    try:
+        homeDir = os.listdir("/home")
+        username = path.split("/")[2]
+        for userFolderName in homeDir:
+            if (username == userFolderName):
+                return True
+        return False
+    except:
+        return False
 
 # Función que retorna la IP actual del equipo
 def getIp():
@@ -129,7 +147,10 @@ def getTopPS():
 resultSet = {}
 
 resultSet['nombreEquipo'] = getHostname()
-resultSet['usuarios'] = getUsuarios()
+resultSet['usuariosReales'] = getAllUsers('r')
+resultSet['todosLosUsuarios'] = getAllUsers('a')
+resultSet['cantidadUsuariosReales'] = len(resultSet['usuariosReales'])
+resultSet['cantidadTotalUsuarios'] = len(resultSet['todosLosUsuarios'])
 resultSet['ipEquipo'] = getIp()
 resultSet['mac'] = getMACAdd()
 resultSet['totalRAM'] = getTotalRAM()
