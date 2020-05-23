@@ -90,8 +90,8 @@ def getTotalSWAP():
 
 # Función que retorna un diccionario de diccionarios con información de discos, 
 # la llave de cada diccionario es el nombre del disco y su contenido es la cantidad 
-# de espacio libre en Megabytes que tiene ese disco
-def getAllDisksFree():
+# de espacio en Megabytes que tiene ese disco
+def getAllDisks():
 
     p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     #Se espera que acabe el subproceso para mostrar la salida decodificada
@@ -144,8 +144,55 @@ def getTopPS():
     
     return procesosDict
 
+#Función que retorna el porcentaje de uso de cpu de la máquina basado en el comando top
+def getCPUUsagePercentage():
+    p = subprocess.Popen("top -n1 | head -n3 | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+    p.wait()
+    CPU = p.stdout.read().decode().strip()
+    return 1-float(re.sub(" +"," ",re.sub("inact",".", CPU).split(".")[0].strip()).split(" ")[7].replace(",","."))
+    
+#Función que retorna el porcentaje de uso de la memoria RAM del equipo
+def getRAMUsagePercentage():
+  
+    #Se llama al subproceso ejecutando ese comando
+    pMemoria = subprocess.Popen("free | head -n2 | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+    pMemoria.wait()
+    #Se suprime el exceso de espacios y se realiza el split con base al caracter " "
+    memoria = re.sub(" +"," ", pMemoria.stdout.read().decode()).split(" ")
+    return (int(memoria[2]))/int(memoria[1])
+
+#Función que retorna el porcentaje de uso de la memoria SWAP del equipo
+def getSWAPUsagePercentage():
+
+    #Se llama al subproceso ejecutando ese comando
+    pMemoria = subprocess.Popen("free | head -n3 | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+    pMemoria.wait()
+    #Se suprime el exceso de espacios y se realiza el split con base al caracter " "
+    memoria = re.sub(" +"," ", pMemoria.stdout.read().decode()).split(" ")
+    return (int(memoria[2]))/int(memoria[1])
+
+# Función que retorna un diccionario de diccionarios con información de discos, 
+# la llave de cada diccionario es el nombre del disco y su contenido es el porcentaje
+# de uso de espacio en ese disco
+def getAllDisksUsagePercentage():
+
+    p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    discos = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+
+    discosDict={}
+    for discoRaw in discos:
+        discoRaw = discoRaw.split(" ")
+        if('/sd' in discoRaw[0]):
+            discosDict[discoRaw[0]]=int(discoRaw[4].replace("%",""))
+    return discosDict
+
+
 resultSet = {}
 
+# Se puede llamar a cada una de las llaver mostradas para obtener información 
+# o un diccionario con más información
 resultSet['nombreEquipo'] = getHostname()
 resultSet['usuariosReales'] = getAllUsers('r')
 resultSet['todosLosUsuarios'] = getAllUsers('a')
@@ -155,9 +202,13 @@ resultSet['ipEquipo'] = getIp()
 resultSet['mac'] = getMACAdd()
 resultSet['totalRAM'] = getTotalRAM()
 resultSet['totalSwap'] = getTotalSWAP()
-resultSet['discos'] = getAllDisksFree()
+resultSet['discos'] = getAllDisks()
 resultSet['cpuCores'] = getCPUCores()
 resultSet['cpuFrec'] = getCPUFreq()
 resultSet["topProcesos"] = getTopPS()
+resultSet["usoDeCPU"] = getCPUUsagePercentage()
+resultSet["usoDeRAM"] = getRAMUsagePercentage()
+resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
+resultSet["usoDeDisco"] = getAllDisksUsagePercentage()
 
 sys.stdout.write(str(resultSet)+"\n")
