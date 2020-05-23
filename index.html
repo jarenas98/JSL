@@ -16,10 +16,50 @@
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);
+
+    
+
+        var datos = {'nombreEquipo' : 'jefferson-VirtualBox', 
+                    'ipEquipo': '10.0.2.15', 
+                    'mac': '08:00:27:8a:a4:b3', 
+                    'totalRAM': 1942, 
+                    'totalSwap': 947, 
+                    'discos': { '/dev/sda1': 20029 }, 
+                    'cpuCores': 1, 
+                    'cpuFrec': 1796.631, 
+                    'topProcesos': {'1546': { 'usuarioPropietario': 'jeffers+', 
+                                                'Nombre del proceso': 'cinnamon', 
+                                                'Porcentaje de uso de CPU': '20.6', 
+                                                'Tiempo de ejecución': '0:51' }, 
+                                    '1189': { 'usuarioPropietario': 'root', 
+                                                'Nombre del proceso': '/usr/lib/xorg/Xorg', 
+                                                'Porcentaje de uso de CPU': '2.5', 
+                                                'Tiempo de ejecución': '0:06' },
+                                    '1569': { 'usuarioPropietario': 'jeffers+', 
+                                               'Nombre del proceso': 'nemo-desktop', 
+                                               'Porcentaje de uso de CPU': '1.7', 
+                                               'Tiempo de ejecución': '0:04' }, 
+                                    '1': { 'usuarioPropietario': 'root', 
+                                            'Nombre del proceso': '/sbin/init',
+                                            'Porcentaje de uso de CPU': '1.6', 
+                                            'Tiempo de ejecución': '0:05' },
+                                    '1789': { 'usuarioPropietario': 'root', 
+                                            'Nombre del proceso': '/usr/lib/flatpak/flatpak-system-helper',
+                                            'Porcentaje de uso de CPU': '1.4',
+                                            'Tiempo de ejecución': '0:03' } 
+                    } 
+                                            
+        };
+
+        var prueba ={
+         'squadName': 'Super hero squad',
+         'squadName2': 'Super hero squad',
+        }
+
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Work', 11],
+                [this.datos.nombreEquipo, 11],
                 ['Eat', 2],
                 ['Commute', 2],
                 ['Watch TV', 2],
@@ -27,7 +67,7 @@
             ]);
 
             var options = {
-                title: 'My Daily Activities',
+                title: this.prueba.squadName2,
                 pieHole: 0.4,
             };
 
