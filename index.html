@@ -15,17 +15,171 @@
             --color-secondary: #26A69A;
             --color-tertiary: #80CBC4;
             --color-white: floralwhite;
-            --color-primary-text:#212121;
+            --color-primary-text: #212121;
             --color-secondary-text: #757575;
         }
     </style>
+
+
+
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Reload</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard y section2 -->
+
+    <main role="main" style="width:100%; padding-left:5%; padding-right: 5%;">
+        <!-- Titulo principal -->
+        <div id="tituloPrincipal"
+            class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        </div>
+        <!-- Titulo 2 -->
+        <div class="d-flex  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h2>Información General</h2>
+        </div>
+
+        <!-- Informacion General -->
+
+        <div class="container justify-content-center text-center">
+            <div class="row">
+                <div class="col-sm">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">IP</h2>
+                        </div>
+                        <div id="campoIp" class="card-body"></div>
+                    </div>
+
+
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">MAC</h2>
+                        </div>
+                        <div id="campoMAC" class="card-body"></div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="h2">RAM TOTAL</h2>
+                            </div>
+                            <div id="ramTotal" class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">SWAP TOTAL</h2>
+                        </div>
+                        <div id="swapTotal" class="card-body"></div>
+                    </div>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+            <br />
+            <div class="row">
+
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">CPU</h2>
+                        </div>
+                        <div id="cpu" class="card-body">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="h3"># Nucleos</h2>
+                                        </div>
+                                        <div id="corestotales" class="card-body"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="h3">Frecuencia Total</h2>
+                                        </div>
+                                        <div id="frecTotal" class="card-body"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row ">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">Usuarios Creados</h2>
+                        </div>
+                        <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                 
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">NombreCompleto</th>
+                                    <th scope="col">NoHab</th>
+                                    <th scope="col">telefono Oficina</th>
+                                    <th scope="col">telefono Casa</th>
+                                </tr>
+                            </thead>
+                            <tbody  id="bodyTablaUsuariosCreados">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>EJ</td>
+                                    <td>EJ</td>
+                                    <td>EJ</td>
+                                    <td>EJ</td>
+                                    <td>EJ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seccion de detalle -->
+        <br />
+        <div class="d-flex  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
+            <h1 class="h2">Información Detallada</h1>
+        </div>
+
+    </main>
+
 
     <!-- Script para graficas -->
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load("current", { packages: ["corechart"] });
-        google.charts.setOnLoadCallback(drawChart);
+
 
 
         var datos = {
@@ -47,7 +201,7 @@
                 "34": { nombre: "backup", nombreCompleto: "backup" },
                 "38": { nombre: "list", nombreCompleto: "Mailing List Manager" },
                 "39": { nombre: "irc", nombreCompleto: "ircd" },
-                "41": {nombre: "gnats",nombreCompleto: "Gnats Bug-Reporting System (admin)",},
+                "41": { nombre: "gnats", nombreCompleto: "Gnats Bug-Reporting System (admin)", },
                 "65534": { nombre: "nobody", nombreCompleto: "nobody" },
                 "100": {
                     nombre: "systemd-network",
@@ -217,221 +371,29 @@
         };
 
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                [this.datos.nombreEquipo, 11],
-                ['Eat', 2],
-                ['Commute', 2],
-                ['Watch TV', 2],
-                ['Sleep', 7]
-            ]);
+        // Metodo que se encarga de ejecutar los diferentes metodos
+        function main() {
+            // cambiar el titrulo del documento
+            document.getElementById('tituloPrincipal').innerHTML = `<h1 class="h1">Maquina: ${this.datos.nombreEquipo}</h1>`;
+            // cambiar el contedido del IP
+            document.getElementById('campoIp').innerHTML = `<h3 class="h3">${this.datos.ipEquipo}</h3>`;
+            // cambiar el contedido del MAC
+            document.getElementById('campoMAC').innerHTML = `<h3 class="h3">${this.datos.mac}</h3>`;
+            // cambiar el contedido del RAM TOTAL
+            document.getElementById('ramTotal').innerHTML = `<h3 class="h3">${this.datos.totalRAM} MB</h3>`;
+            // cambiar el contedido del SWAP TOTAL
+            document.getElementById('swapTotal').innerHTML = `<h3 class="h3">${this.datos.totalSwap} MB</h3>`;
+            // cambiar el contedido del CPU cores
+            document.getElementById('corestotales').innerHTML = `<h3 class="h4">${this.datos.cpuCores}</h3>`;
+            // cambiar el contedido del CPU Frec
+            document.getElementById('frecTotal').innerHTML = `<h3 class="h4">${this.datos.cpuFrec} MHz</h3>`;
 
-            var options = {
-                title: this.prueba.squadName2,
-                pieHole: 0.4,
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-            chart.draw(data, options);
         }
+
+
+
+        this.main();
     </script>
-
-
-
-
-</head>
-
-<body>
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software</a>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Reload</a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Dashboard y section2 -->
-
-    <main role="main" style="width:100%; padding-left:5%; padding-right: 5%;">
-
-        <div
-            class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-
-                    <div class="card">
-                        <div class="card-header">
-                            Featured
-                        </div>
-                        <div class="card-body">
-                            <div id="donutchart" style="width: 100%; height: 500px;"></div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="w-100"></div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-            </div>
-        </div>
-
-        <!-- Seccion de detalle -->
-
-        <div
-            class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Detail section</h1>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-striped table-sm">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>dapibus</td>
-                        <td>diam</td>
-                        <td>Sed</td>
-                        <td>nisi</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>Nulla</td>
-                        <td>quis</td>
-                        <td>sem</td>
-                        <td>at</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>nibh</td>
-                        <td>elementum</td>
-                        <td>imperdiet</td>
-                        <td>Duis</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>sagittis</td>
-                        <td>ipsum</td>
-                        <td>Praesent</td>
-                        <td>mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>Fusce</td>
-                        <td>nec</td>
-                        <td>tellus</td>
-                        <td>sed</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>augue</td>
-                        <td>semper</td>
-                        <td>porta</td>
-                        <td>Mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>massa</td>
-                        <td>Vestibulum</td>
-                        <td>lacinia</td>
-                        <td>arcu</td>
-                    </tr>
-                    <tr>
-                        <td>1,011</td>
-                        <td>eget</td>
-                        <td>nulla</td>
-                        <td>Class</td>
-                        <td>aptent</td>
-                    </tr>
-                    <tr>
-                        <td>1,012</td>
-                        <td>taciti</td>
-                        <td>sociosqu</td>
-                        <td>ad</td>
-                        <td>litora</td>
-                    </tr>
-                    <tr>
-                        <td>1,013</td>
-                        <td>torquent</td>
-                        <td>per</td>
-                        <td>conubia</td>
-                        <td>nostra</td>
-                    </tr>
-                    <tr>
-                        <td>1,014</td>
-                        <td>per</td>
-                        <td>inceptos</td>
-                        <td>himenaeos</td>
-                        <td>Curabitur</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </main>
-
-
 
 
 
@@ -446,6 +408,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 
 </body>
 
