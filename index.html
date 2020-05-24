@@ -191,7 +191,7 @@
                                 <thead>
                                     <tr>
 
-                                        <th scope="col">#</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">NombreCompleto</th>
                                         <th scope="col">NoHab</th>
@@ -199,16 +199,8 @@
                                         <th scope="col">telefono Casa</th>
                                     </tr>
                                 </thead>
-                                <tbody id="bodyTablaUsuariosCreados">
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>EJ</td>
-                                        <td>EJ</td>
-                                        <td>EJ</td>
-                                        <td>EJ</td>
-                                        <td>EJ</td>
-                                    </tr>
-                                </tbody>
+                                <!-- Datos de los usuarios reales -->
+                                <tbody id="bodyTablaUsuariosCreados"></tbody>
                             </table>
                         </div>
                     </div>
@@ -235,7 +227,7 @@
 
         var datos = {
             'nombreEquipo': 'jefferson-VirtualBox',
-            'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' } },
+            'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '3', 'telOficina': '4', 'telCasa': '888' } },
             'todosLosUsuarios': { '0': { 'nombre': 'root', 'nombreCompleto': 'root' }, '1': { 'nombre': 'daemon', 'nombreCompleto': 'daemon' }, '2': { 'nombre': 'bin', 'nombreCompleto': 'bin' }, '3': { 'nombre': 'sys', 'nombreCompleto': 'sys' }, '4': { 'nombre': 'sync', 'nombreCompleto': 'sync' }, '5': { 'nombre': 'games', 'nombreCompleto': 'games' }, '6': { 'nombre': 'man', 'nombreCompleto': 'man' }, '7': { 'nombre': 'lp', 'nombreCompleto': 'lp' }, '8': { 'nombre': 'mail', 'nombreCompleto': 'mail' }, '9': { 'nombre': 'news', 'nombreCompleto': 'news' }, '10': { 'nombre': 'uucp', 'nombreCompleto': 'uucp' }, '13': { 'nombre': 'proxy', 'nombreCompleto': 'proxy' }, '33': { 'nombre': 'www-data', 'nombreCompleto': 'www-data' }, '34': { 'nombre': 'backup', 'nombreCompleto': 'backup' }, '38': { 'nombre': 'list', 'nombreCompleto': 'Mailing List Manager' }, '39': { 'nombre': 'irc', 'nombreCompleto': 'ircd' }, '41': { 'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)' }, '65534': { 'nombre': 'nobody', 'nombreCompleto': 'nobody' }, '100': { 'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '101': { 'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '102': { 'nombre': 'syslog', 'nombreCompleto': '' }, '103': { 'nombre': 'messagebus', 'nombreCompleto': '' }, '104': { 'nombre': '_apt', 'nombreCompleto': '' }, '105': { 'nombre': 'uuidd', 'nombreCompleto': '' }, '106': { 'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '107': { 'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '108': { 'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '109': { 'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '110': { 'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '111': { 'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '112': { 'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager' }, '113': { 'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '114': { 'nombre': 'saned', 'nombreCompleto': '' }, '115': { 'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '116': { 'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '117': { 'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '118': { 'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '119': { 'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '120': { 'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '121': { 'nombre': 'geoclue', 'nombreCompleto': '' }, '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '999': { 'nombre': 'vboxadd', 'nombreCompleto': '' }, '1001': { 'nombre': 'camilo', 'nombreCompleto': '' }, '1002': { 'nombre': 'jazmin', 'nombreCompleto': '' }, '1003': { 'nombre': 'lucrecia', 'nombreCompleto': '' } },
             'cantidadUsuariosReales': 1,
             'cantidadTotalUsuarios': 45,
@@ -272,6 +264,8 @@
             document.getElementById('frecTotal').innerHTML = `<h3 class="h4">${this.datos.cpuFrec} MHz</h3>`;
             // llenar tabla de particiones
             this.insertDataParticiones();
+            // llena tabla de usuarios creados
+            this.insertarDataUsuariosCreados();
 
             
 
@@ -295,7 +289,7 @@
                  datatablePart1.push([particion, this.datos.discos[particion]]);
                  contador ++;
             }
-            console.log(this.datatablePart1)
+           
             document.getElementById('bodyTablaParticiones').innerHTML = `${res}`;
         }
         // permite renderizar la grafica de las particiones
@@ -310,6 +304,29 @@
 
             var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
             chart.draw(data, options);
+        }
+        // Obteniendo todas los usuarios creados y los pinta
+        function insertarDataUsuariosCreados () {
+            let res ="";
+
+            for (var usuario in this.datos.usuariosReales) {
+                                    
+             
+                    console.log(usuario['nombre'])
+                   res = res +`
+                <tr>
+                    <th scope="row">${usuario}</th>
+                    <td>${this.datos.usuariosReales[usuario].nombre}</td>
+                    <td>${this.datos.usuariosReales[usuario].nombreCompleto}</td>
+                    <td>${this.datos.usuariosReales[usuario].noHab}</td>
+                    <td>${this.datos.usuariosReales[usuario].telOficina}</td>
+                    <td>${this.datos.usuariosReales[usuario].telCasa}</td>
+                </tr>`;
+
+
+                }
+            
+            document.getElementById('bodyTablaUsuariosCreados').innerHTML = `${res}`;
         }
 
    
