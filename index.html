@@ -130,6 +130,56 @@
                 </div>
             </div>
             <br />
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="h2">Almacenamiento</h2>
+                        </div>
+                        <div class="card-body">
+                            
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="h3">Particiones</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Nombre</th>
+                                                        <th scope="col">Total</th>
+                                                     </tr>
+                                                </thead>
+                                                <!-- Datos de las particiones -->
+                                                <tbody id="bodyTablaParticiones"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="h3">Grafica</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <div  style="width: 100%; height: 100%; overflow: hidden; " class=" align-items-center">
+                                                <div id="donutchart" ></div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <br />
             <div class="row ">
                 <div class="col-sm">
                     <div class="card">
@@ -137,30 +187,30 @@
                             <h2 class="h2">Usuarios Creados</h2>
                         </div>
                         <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                 
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">NombreCompleto</th>
-                                    <th scope="col">NoHab</th>
-                                    <th scope="col">telefono Oficina</th>
-                                    <th scope="col">telefono Casa</th>
-                                </tr>
-                            </thead>
-                            <tbody  id="bodyTablaUsuariosCreados">
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>EJ</td>
-                                    <td>EJ</td>
-                                    <td>EJ</td>
-                                    <td>EJ</td>
-                                    <td>EJ</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">NombreCompleto</th>
+                                        <th scope="col">NoHab</th>
+                                        <th scope="col">telefono Oficina</th>
+                                        <th scope="col">telefono Casa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bodyTablaUsuariosCreados">
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>EJ</td>
+                                        <td>EJ</td>
+                                        <td>EJ</td>
+                                        <td>EJ</td>
+                                        <td>EJ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,196 +229,29 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
+         google.charts.load("current", {packages:["corechart"]});
+        
 
 
         var datos = {
-            nombreEquipo: "jefferson-VirtualBox",
-            usuarios: {
-                "0": { nombre: "root", nombreCompleto: "root" },
-                "1": { nombre: "daemon", nombreCompleto: "daemon" },
-                "2": { nombre: "bin", nombreCompleto: "bin" },
-                "3": { nombre: "sys", nombreCompleto: "sys" },
-                "4": { nombre: "sync", nombreCompleto: "sync" },
-                "5": { nombre: "games", nombreCompleto: "games" },
-                "6": { nombre: "man", nombreCompleto: "man" },
-                "7": { nombre: "lp", nombreCompleto: "lp" },
-                "8": { nombre: "mail", nombreCompleto: "mail" },
-                "9": { nombre: "news", nombreCompleto: "news" },
-                "10": { nombre: "uucp", nombreCompleto: "uucp" },
-                "13": { nombre: "proxy", nombreCompleto: "proxy" },
-                "33": { nombre: "www-data", nombreCompleto: "www-data" },
-                "34": { nombre: "backup", nombreCompleto: "backup" },
-                "38": { nombre: "list", nombreCompleto: "Mailing List Manager" },
-                "39": { nombre: "irc", nombreCompleto: "ircd" },
-                "41": { nombre: "gnats", nombreCompleto: "Gnats Bug-Reporting System (admin)", },
-                "65534": { nombre: "nobody", nombreCompleto: "nobody" },
-                "100": {
-                    nombre: "systemd-network",
-                    nombreCompleto: "systemd Network Management",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "101": {
-                    nombre: "systemd-resolve",
-                    nombreCompleto: "systemd Resolver",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "102": { nombre: "syslog", nombreCompleto: "" },
-                "103": { nombre: "messagebus", nombreCompleto: "" },
-                "104": { nombre: "_apt", nombreCompleto: "" },
-                "105": { nombre: "uuidd", nombreCompleto: "" },
-                "106": {
-                    nombre: "cups-pk-helper",
-                    nombreCompleto: "user for cups-pk-helper service",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "107": {
-                    nombre: "kernoops",
-                    nombreCompleto: "Kernel Oops Tracking Daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "108": {
-                    nombre: "rtkit",
-                    nombreCompleto: "RealtimeKit",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "109": {
-                    nombre: "avahi-autoipd",
-                    nombreCompleto: "Avahi autoip daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "110": {
-                    nombre: "usbmux",
-                    nombreCompleto: "usbmux daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "111": {
-                    nombre: "systemd-coredump",
-                    nombreCompleto: "systemd core dump processing",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "112": { nombre: "lightdm", nombreCompleto: "Light Display Manager" },
-                "113": {
-                    nombre: "dnsmasq",
-                    nombreCompleto: "dnsmasq",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "114": { nombre: "saned", nombreCompleto: "" },
-                "115": {
-                    nombre: "nm-openvpn",
-                    nombreCompleto: "NetworkManager OpenVPN",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "116": {
-                    nombre: "avahi",
-                    nombreCompleto: "Avahi mDNS daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "117": {
-                    nombre: "colord",
-                    nombreCompleto: "colord colour management daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "118": {
-                    nombre: "speech-dispatcher",
-                    nombreCompleto: "Speech Dispatcher",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "119": {
-                    nombre: "pulse",
-                    nombreCompleto: "PulseAudio daemon",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "120": {
-                    nombre: "hplip",
-                    nombreCompleto: "HPLIP system user",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "121": { nombre: "geoclue", nombreCompleto: "" },
-                "1000": {
-                    nombre: "jefferson",
-                    nombreCompleto: "Jefferson",
-                    noHab: "",
-                    telOficina: "",
-                    telCasa: "",
-                },
-                "999": { nombre: "vboxadd", nombreCompleto: "" },
-                "1001": { nombre: "camilo", nombreCompleto: "" },
-                "1002": { nombre: "jazmin", nombreCompleto: "" },
-                "1003": { nombre: "lucrecia", nombreCompleto: "" },
-                usuarios: { nombre: "lucrecia", nombreCompleto: "" },
-            },
-            ipEquipo: "10.0.2.15",
-            mac: "08:00:27:8a:a4:b3",
-            totalRAM: 1989,
-            totalSwap: 969,
-            discos: { "/dev/sda1": 20029 },
-            cpuCores: 1,
-            cpuFrec: 1796.631,
-            topProcesos: {
-                "1429": {
-                    usuarioPropietario: "jeffers+",
-                    "Nombre del proceso": "cinnamon",
-                    "Porcentaje de uso de CPU": "9.5",
-                    "Tiempo de ejecución": "0:22",
-                },
-                "1677": {
-                    usuarioPropietario: "jeffers+",
-                    "Nombre del proceso": "/usr/lib/gnome-terminal/gnome-terminal-server",
-                    "Porcentaje de uso de CPU": "3.7",
-                    "Tiempo de ejecución": "0:00",
-                },
-                "1070": {
-                    usuarioPropietario: "root",
-                    "Nombre del proceso": "/usr/lib/xorg/Xorg",
-                    "Porcentaje de uso de CPU": "1.2",
-                    "Tiempo de ejecución": "0:03",
-                },
-                "1": {
-                    usuarioPropietario: "root",
-                    "Nombre del proceso": "/sbin/init",
-                    "Porcentaje de uso de CPU": "1.1",
-                    "Tiempo de ejecución": "0:03",
-                },
-                "1275": {
-                    usuarioPropietario: "jeffers+",
-                    "Nombre del proceso":
-                        "/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-background",
-                    "Porcentaje de uso de CPU": "1.1",
-                    "Tiempo de ejecución": "0:02",
-                },
-            },
-        };
+            'nombreEquipo': 'jefferson-VirtualBox',
+            'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' } },
+            'todosLosUsuarios': { '0': { 'nombre': 'root', 'nombreCompleto': 'root' }, '1': { 'nombre': 'daemon', 'nombreCompleto': 'daemon' }, '2': { 'nombre': 'bin', 'nombreCompleto': 'bin' }, '3': { 'nombre': 'sys', 'nombreCompleto': 'sys' }, '4': { 'nombre': 'sync', 'nombreCompleto': 'sync' }, '5': { 'nombre': 'games', 'nombreCompleto': 'games' }, '6': { 'nombre': 'man', 'nombreCompleto': 'man' }, '7': { 'nombre': 'lp', 'nombreCompleto': 'lp' }, '8': { 'nombre': 'mail', 'nombreCompleto': 'mail' }, '9': { 'nombre': 'news', 'nombreCompleto': 'news' }, '10': { 'nombre': 'uucp', 'nombreCompleto': 'uucp' }, '13': { 'nombre': 'proxy', 'nombreCompleto': 'proxy' }, '33': { 'nombre': 'www-data', 'nombreCompleto': 'www-data' }, '34': { 'nombre': 'backup', 'nombreCompleto': 'backup' }, '38': { 'nombre': 'list', 'nombreCompleto': 'Mailing List Manager' }, '39': { 'nombre': 'irc', 'nombreCompleto': 'ircd' }, '41': { 'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)' }, '65534': { 'nombre': 'nobody', 'nombreCompleto': 'nobody' }, '100': { 'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '101': { 'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '102': { 'nombre': 'syslog', 'nombreCompleto': '' }, '103': { 'nombre': 'messagebus', 'nombreCompleto': '' }, '104': { 'nombre': '_apt', 'nombreCompleto': '' }, '105': { 'nombre': 'uuidd', 'nombreCompleto': '' }, '106': { 'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '107': { 'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '108': { 'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '109': { 'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '110': { 'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '111': { 'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '112': { 'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager' }, '113': { 'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '114': { 'nombre': 'saned', 'nombreCompleto': '' }, '115': { 'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '116': { 'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '117': { 'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '118': { 'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '119': { 'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '120': { 'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '121': { 'nombre': 'geoclue', 'nombreCompleto': '' }, '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '999': { 'nombre': 'vboxadd', 'nombreCompleto': '' }, '1001': { 'nombre': 'camilo', 'nombreCompleto': '' }, '1002': { 'nombre': 'jazmin', 'nombreCompleto': '' }, '1003': { 'nombre': 'lucrecia', 'nombreCompleto': '' } },
+            'cantidadUsuariosReales': 1,
+            'cantidadTotalUsuarios': 45,
+            'ipEquipo': '10.0.2.15',
+            'mac': '08:00:27:8a:a4:b3',
+            'totalRAM': 1989,
+            'totalSwap': 969,
+            'discos': { '/dev/sda1': 20029,'/dev/sda2': 20059,'/dev/sda3': 20059 },
+            'cpuCores': 1,
+            'cpuFrec': 1796.631,
+            'topProcesos': { '1533': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '5.3', 'Tiempo de ejecución': '0:13' }, '1846': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': '/usr/lib/gnome-terminal/gnome-terminal-server', 'Porcentaje de uso de CPU': '3.0', 'Tiempo de ejecución': '0:00' }, '1': { 'usuarioPropietario': 'root', 'Nombre del proceso': '/sbin/init', 'Porcentaje de uso de CPU': '0.8', 'Tiempo de ejecución': '0:02' }, '1176': { 'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '0.6', 'Tiempo de ejecución': '0:01' }, '1555': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': 'nemo-desktop', 'Porcentaje de uso de CPU': '0.6', 'Tiempo de ejecución': '0:01' } },
+            'usoDeCPU': -75.6,
+            'usoDeRAM': 0.29212069062572876,
+            'usoDeSWAP': 0.0,
+            'usoDeDisco': { '/dev/sda1': 40 }
+        }
 
 
         // Metodo que se encarga de ejecutar los diferentes metodos
@@ -387,12 +270,52 @@
             document.getElementById('corestotales').innerHTML = `<h3 class="h4">${this.datos.cpuCores}</h3>`;
             // cambiar el contedido del CPU Frec
             document.getElementById('frecTotal').innerHTML = `<h3 class="h4">${this.datos.cpuFrec} MHz</h3>`;
+            // llenar tabla de particiones
+            this.insertDataParticiones();
+
+            
+
+
 
         }
+        // variable que almacenara la data para las particiones de la tabla 1
+        var datatablePart1 = [["Partición","MB"]];
+        // Variable que almacenara el total de almacenamiento en MB
+        var totalAlmacenamiento = 0;
+        // permite pintar las particiones en la tabla de particiones
+        function insertDataParticiones () {
 
+            let res = "";
+            let contador = 1;
+            
+            // Obteniendo todas las particiones de datos
+            for (var particion in this.datos.discos) {
+                 res = res + `<tr><th scope="row">${contador}</th><td>${particion}</td> <td>${this.datos.discos[particion]} MB</td></tr>`;
+                 totalAlmacenamiento = totalAlmacenamiento+this.datos.discos[particion];
+                 datatablePart1.push([particion, this.datos.discos[particion]]);
+                 contador ++;
+            }
+            console.log(this.datatablePart1)
+            document.getElementById('bodyTablaParticiones').innerHTML = `${res}`;
+        }
+        // permite renderizar la grafica de las particiones
+        function renderGrafParticiones (){
+            var data = google.visualization.arrayToDataTable(this.datatablePart1,false);
 
+      
+            var options = {
+                title: "Total = "+`${this.totalAlmacenamiento}`+" MB",
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+
+   
 
         this.main();
+        google.charts.setOnLoadCallback(renderGrafParticiones);
     </script>
 
 
