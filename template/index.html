@@ -672,6 +672,257 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', { 'packages': ['corechart', "gauge"] });
+      google.charts.setOnLoadCallback(dibujarGraficaParticiones);
+      google.charts.setOnLoadCallback(dibujarGraficaUsoDeRam);
+      google.charts.setOnLoadCallback(dibujarGraficaUsoDeDisco);
+      google.charts.setOnLoadCallback(dibujarGraficaUsoDeCadaDisco);
+      google.charts.setOnLoadCallback(dibujarGraficaTopProcesos);
+
+     
+      var datos = 
+  {   
+          //ZonaDeCambio+
+
+          'nombreEquipo': 'jefferson-VirtualBox',
+          'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '3', 'telOficina': '4', 'telCasa': '888' } },
+          'todosLosUsuarios': { '0': { 'nombre': 'root', 'nombreCompleto': 'root' }, '1': { 'nombre': 'daemon', 'nombreCompleto': 'daemon' }, '2': { 'nombre': 'bin', 'nombreCompleto': 'bin' }, '3': { 'nombre': 'sys', 'nombreCompleto': 'sys' }, '4': { 'nombre': 'sync', 'nombreCompleto': 'sync' }, '5': { 'nombre': 'games', 'nombreCompleto': 'games' }, '6': { 'nombre': 'man', 'nombreCompleto': 'man' }, '7': { 'nombre': 'lp', 'nombreCompleto': 'lp' }, '8': { 'nombre': 'mail', 'nombreCompleto': 'mail' }, '9': { 'nombre': 'news', 'nombreCompleto': 'news' }, '10': { 'nombre': 'uucp', 'nombreCompleto': 'uucp' }, '13': { 'nombre': 'proxy', 'nombreCompleto': 'proxy' }, '33': { 'nombre': 'www-data', 'nombreCompleto': 'www-data' }, '34': { 'nombre': 'backup', 'nombreCompleto': 'backup' }, '38': { 'nombre': 'list', 'nombreCompleto': 'Mailing List Manager' }, '39': { 'nombre': 'irc', 'nombreCompleto': 'ircd' }, '41': { 'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)' }, '65534': { 'nombre': 'nobody', 'nombreCompleto': 'nobody' }, '100': { 'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '101': { 'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '102': { 'nombre': 'syslog', 'nombreCompleto': '' }, '103': { 'nombre': 'messagebus', 'nombreCompleto': '' }, '104': { 'nombre': '_apt', 'nombreCompleto': '' }, '105': { 'nombre': 'uuidd', 'nombreCompleto': '' }, '106': { 'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '107': { 'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '108': { 'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '109': { 'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '110': { 'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '111': { 'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '112': { 'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager' }, '113': { 'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '114': { 'nombre': 'saned', 'nombreCompleto': '' }, '115': { 'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '116': { 'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '117': { 'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '118': { 'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '119': { 'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '120': { 'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '121': { 'nombre': 'geoclue', 'nombreCompleto': '' }, '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '999': { 'nombre': 'vboxadd', 'nombreCompleto': '' }, '1001': { 'nombre': 'camilo', 'nombreCompleto': '' }, '1002': { 'nombre': 'jazmin', 'nombreCompleto': '' }, '1003': { 'nombre': 'lucrecia', 'nombreCompleto': '' } },
+          'cantidadUsuariosReales': 1,
+          'cantidadTotalUsuarios': 45,
+          'ipEquipo': '10.0.2.15',
+          'mac': '08:00:27:8a:a4:b3',
+          'totalRAM': 1989,
+          'totalSwap': 969,
+          'discos': { '/dev/sda1': 20029, '/dev/sda2': 20059, '/dev/sda3': 20059 },
+          'cpuCores': 1,
+          'cpuFrec': 1796.631,
+          'topProcesos': { '1533': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '5.3', 'Tiempo de ejecución': '0:13' }, '1846': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': '/usr/lib/gnome-terminal/gnome-terminal-server', 'Porcentaje de uso de CPU': '3.0', 'Tiempo de ejecución': '0:00' }, '1': { 'usuarioPropietario': 'root', 'Nombre del proceso': '/sbin/init', 'Porcentaje de uso de CPU': '0.8', 'Tiempo de ejecución': '0:02' }, '1176': { 'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '0.6', 'Tiempo de ejecución': '0:01' }, '1555': { 'usuarioPropietario': 'jeffers+', 'Nombre del proceso': 'nemo-desktop', 'Porcentaje de uso de CPU': '0.6', 'Tiempo de ejecución': '0:01' } },
+          'usoDeCPU': -75.6,
+          'usoDeRAM': 0.29212069062572876,
+          'usoDeSWAP': 0.0,
+          'usoDeDisco': { '/dev/sda1': 40, '/dev/sda2': 80 }
+          //ZonaDeCambio-
+      }
+      
+
+
+      // Metodo que se encarga de ejecutar los diferentes metodos
+      function main() {
+          // cambiar el titrulo del documento
+          document.getElementById('tituloPrincipal').innerHTML = `<h1 class="h1">Maquina: ${this.datos.nombreEquipo}</h1>`;
+          // cambiar el contedido del IP
+          document.getElementById('campoIp').innerHTML = `<h3 class="h3">${this.datos.ipEquipo}</h3>`;
+          // cambiar el contedido del MAC
+          document.getElementById('campoMAC').innerHTML = `<h3 class="h3">${this.datos.mac}</h3>`;
+          // cambiar el contedido del RAM TOTAL
+          document.getElementById('ramTotal').innerHTML = `<h3 class="h3">${this.datos.totalRAM} MB</h3>`;
+          // cambiar el contedido del SWAP TOTAL
+          document.getElementById('swapTotal').innerHTML = `<h3 class="h3">${this.datos.totalSwap} MB</h3>`;
+          // cambiar el contedido del CPU cores
+          document.getElementById('corestotales').innerHTML = `<h3 class="h3">${this.datos.cpuCores}</h3>`;
+          // cambiar el contedido del CPU Frec
+          document.getElementById('frecTotal').innerHTML = `<h3 class="h3">${this.datos.cpuFrec} MHz</h3>`;
+          // llenar tabla de particiones
+          this.insertDataParticiones();
+          // llena tabla de usuarios creados
+          this.insertarDataUsuariosCreados();
+          this.insertarDataUsuariosDelSistema();
+
+      }
+      // variable que almacenara la data para las particiones de la tabla 1
+      var datatablePart1 = [["Partición", "MB"]];
+      // Variable que almacenara el total de almacenamiento en MB
+      var totalAlmacenamiento = 0;
+      // permite pintar las particiones en la tabla de particiones
+      function insertDataParticiones() {
+
+          let res = "";
+          let contador = 1;
+
+          // Obteniendo todas las particiones de datos
+          for (var particion in this.datos.discos) {
+              res = res + `<tr><th scope="row">${contador}</th><td>${particion}</td> <td>${this.datos.discos[particion]} MB</td></tr>`;
+              totalAlmacenamiento = totalAlmacenamiento + this.datos.discos[particion];
+              datatablePart1.push([particion, this.datos.discos[particion]]);
+              contador++;
+          }
+
+          document.getElementById('bodyTablaParticiones').innerHTML = `${res}`;
+      }
+
+
+
+      function dibujarGraficaUsoDeRam() {
+
+          var data = google.visualization.arrayToDataTable([
+              ['Label', 'Value'],
+              ['RAM', ((this.datos.usoDeRAM) * 100)],
+
+          ]);
+
+          var options = {
+              width: 460, height: 180,
+              redFrom: 90, redTo: 100,
+              yellowFrom: 75, yellowTo: 90,
+              minorTicks: 5
+          };
+
+          var chart = new google.visualization.Gauge(document.getElementById('uso-de-ram'));
+
+          chart.draw(data, options);
+
+
+      }
+      function dibujarGraficaTopProcesos() {
+
+
+
+
+          var datos = [
+              ['Process', '% uso CPU',],
+          ]
+
+
+
+          datos = datos.concat(Object.values(this.datos.topProcesos).map((item) => { return [item["Nombre del proceso"], parseFloat(item["Porcentaje de uso de CPU"])] }))
+
+
+          var data = google.visualization.arrayToDataTable(datos);
+
+          var options = {
+
+              chartArea: { width: '50%' },
+              hAxis: {
+                  title: 'Porcentaje de uso de CPU',
+                  minValue: 0
+              },
+              vAxis: {
+                  title: 'Nombre'
+              }
+          };
+
+          var chart = new google.visualization.BarChart(document.getElementById('top-procesos'));
+
+          chart.draw(data, options);
+      }
+      function dibujarGraficaUsoDeDisco() {
+
+          const total_discos = Object.values(this.datos.discos).reduce((a, b) => a + b, 0)
+
+          const total_usado = Object.values(this.datos.usoDeDisco).reduce((a, b) => a + b, 0)
+
+
+          const info = (total_usado * 100) / total_discos
+
+          var data = google.visualization.arrayToDataTable([
+              ['Label', 'Value'],
+              ['Total', info],
+
+          ]);
+
+          var options = {
+              width: 460, height: 180,
+              redFrom: 90, redTo: 100,
+              yellowFrom: 75, yellowTo: 90,
+              minorTicks: 5
+          };
+
+          var chart = new google.visualization.Gauge(document.getElementById('uso-de-disco'));
+
+          chart.draw(data, options);
+
+
+      }
+      function dibujarGraficaUsoDeCadaDisco() {
+
+          let info = [['Label', 'Value']];
+
+          obj = this.datos.usoDeDisco
+
+          for (const prop in obj) {
+              info = info.concat([[prop, ((obj[prop] * 100) / this.datos.discos[prop])]])
+          }
+
+
+
+
+          var data = google.visualization.arrayToDataTable(info);
+
+          var options = {
+              width: 460, height: 180,
+              redFrom: 90, redTo: 100,
+              yellowFrom: 75, yellowTo: 90,
+              minorTicks: 5
+          };
+
+          var chart = new google.visualization.Gauge(document.getElementById('uso-por-disco'));
+
+          chart.draw(data, options);
+
+
+      }
+      function dibujarGraficaParticiones() {
+          var data = google.visualization.arrayToDataTable(this.datatablePart1, false);
+
+
+          var options = {
+              title: "Total = " + `${this.totalAlmacenamiento}` + " MB",
+              pieHole: 0.4,
+          };
+
+          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+          chart.draw(data, options);
+      }
+      // Obteniendo todas los usuarios creados y los pinta
+      function insertarDataUsuariosCreados() {
+          let res = "";
+
+          for (var usuario in this.datos.usuariosReales) {
+
+
+              res = res + `
+              <tr>
+                  <th scope="row">${usuario}</th>
+                  <td>${this.datos.usuariosReales[usuario].nombre}</td>
+                  <td>${this.datos.usuariosReales[usuario].nombreCompleto}</td>
+                  <td>${this.datos.usuariosReales[usuario].noHab}</td>
+                  <td>${this.datos.usuariosReales[usuario].telOficina}</td>
+                  <td>${this.datos.usuariosReales[usuario].telCasa}</td>
+              </tr>`;
+
+
+          }
+
+          document.getElementById('bodyTablaUsuariosCreados').innerHTML = `${res}`;
+      }
+      function insertarDataUsuariosDelSistema() {
+          let res = "";
+
+          for (var usuario in this.datos.todosLosUsuarios) {
+
+
+              res = res + `
+              <tr>
+                  <th scope="row">${usuario}</th>
+                  <td>${this.datos.todosLosUsuarios[usuario].nombre}</td>
+                  <td>${this.datos.todosLosUsuarios[usuario].nombreCompleto}</td>
+              </tr>`;
+
+
+          }
+
+          document.getElementById('bodyTablaUsuariosDelSistema').innerHTML = `${res}`;
+      }
+
+
+      this.main();
+
+  </script>
+
+
+
 </body>
 
 </html>
