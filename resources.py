@@ -88,9 +88,9 @@ def getTotalSWAP():
     p.wait()
     return int(re.sub(" +"," ", p.stdout.read().decode()).split(" ")[1])
 
-# Función que retorna un diccionario de diccionarios con información de discos, 
-# la llave de cada diccionario es el nombre del disco y su contenido es la cantidad 
-# de espacio en Megabytes que tiene ese disco
+# Función que retorna un diccionario de diccionarios con información de discos y particiones, 
+# la llave de cada diccionario es el nombre del disco-partición y su contenido es la cantidad 
+# de espacio en Megabytes que tiene.
 def getAllDisks():
 
     p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -149,7 +149,7 @@ def getCPUUsagePercentage():
     p = subprocess.Popen("top -n1 | head -n3 | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     p.wait()
     CPU = p.stdout.read().decode().strip()
-    return 1-float(re.sub(" +"," ",re.sub("inact",".", CPU).split(".")[0].strip()).split(" ")[7].replace(",","."))
+    return round(100-float(re.sub(" +"," ",re.sub("inact",".", CPU).split(".")[0].strip()).split(" ")[7].replace(",",".")),1)
     
 #Función que retorna el porcentaje de uso de la memoria RAM del equipo
 def getRAMUsagePercentage():
@@ -159,7 +159,7 @@ def getRAMUsagePercentage():
     pMemoria.wait()
     #Se suprime el exceso de espacios y se realiza el split con base al caracter " "
     memoria = re.sub(" +"," ", pMemoria.stdout.read().decode()).split(" ")
-    return (int(memoria[2]))/int(memoria[1])
+    return round((int(memoria[2])/int(memoria[1]))*100,1)
 
 #Función que retorna el porcentaje de uso de la memoria SWAP del equipo
 def getSWAPUsagePercentage():
@@ -169,7 +169,7 @@ def getSWAPUsagePercentage():
     pMemoria.wait()
     #Se suprime el exceso de espacios y se realiza el split con base al caracter " "
     memoria = re.sub(" +"," ", pMemoria.stdout.read().decode()).split(" ")
-    return (int(memoria[2]))/int(memoria[1])
+    return round((int(memoria[2])/int(memoria[1]))*100,2)
 
 # Función que retorna un diccionario de diccionarios con información de discos, 
 # la llave de cada diccionario es el nombre del disco y su contenido es el porcentaje
@@ -188,7 +188,6 @@ def getAllDisksUsagePercentage():
             discosDict[discoRaw[0]]=int(discoRaw[4].replace("%",""))
     return discosDict
 
-
 resultSet = {}
 
 # Se puede llamar a cada una de las llaver mostradas para obtener información 
@@ -202,7 +201,7 @@ resultSet['ipEquipo'] = getIp()
 resultSet['mac'] = getMACAdd()
 resultSet['totalRAM'] = getTotalRAM()
 resultSet['totalSwap'] = getTotalSWAP()
-resultSet['discos'] = getAllDisks()
+resultSet['particiones'] = getAllDisks()
 resultSet['cpuCores'] = getCPUCores()
 resultSet['cpuFrec'] = getCPUFreq()
 resultSet["topProcesos"] = getTopPS()
