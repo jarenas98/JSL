@@ -62,10 +62,10 @@
 
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software</a>
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software - GNU Información</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" onClick="location.reload();">Reload</a>
+                <a class="nav-link" onClick="location.reload();">Recargar</a>
             </li>
         </ul>
     </nav>
@@ -80,14 +80,14 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header text-center titulo-2">
-                        <span class="h3">Información general</span>
+                        <span class="h3">Información general de la máquina</span>
                     </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-4">
                                 <div class="card">
                                     <div class="card-header titulo-4">
-                                        <h2 class="h3 text-center">IP</h2>
+                                        <h2 class="h3 text-center">Dirección IP principal</h2>
                                     </div>
                                     <div id="campoIp" class="card-body"></div>
                                 </div>
@@ -95,7 +95,7 @@
                             <div class="col-4">
                                 <div class="card">
                                     <div class="card-header titulo-4">
-                                        <h2 class="h3">MAC</h2>
+                                        <h2 class="h3">MAC principal</h2>
                                     </div>
                                     <div id="campoMAC" class="card-body"></div>
                                 </div>
@@ -103,7 +103,7 @@
                             <div class="col-4">
                                 <div class="card">
                                     <div class="card-header titulo-4">
-                                        <h2 class="h3">RAM TOTAL</h2>
+                                        <h2 class="h3">Memoria RAM total</h2>
                                     </div>
                                     <div id="ramTotal" class="card-body"></div>
                                 </div>
@@ -111,7 +111,7 @@
                             <div class="col-4 mt-4">
                                 <div class="card">
                                     <div class="card-header titulo-4">
-                                        <h2 class="h3">SWAP TOTAL</h2>
+                                        <h2 class="h3">Memoria SWAP total</h2>
                                     </div>
                                     <div id="swapTotal" class="card-body"></div>
                                 </div>
@@ -121,7 +121,7 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header titulo-3">
-                                        <h2 class="h3">CPU</h2>
+                                        <h2 class="h3">Procesador (CPU)</h2>
                                     </div>
                                     <div id="cpu" class="card-body">
                                         <div class="row">
@@ -157,7 +157,7 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-header titulo-4">
-                                                    <h2 class="h3">Particiones</h2>
+                                                    <h2 class="h3">Particiones de la máquina</h2>
                                                 </div>
                                                 <div class="card-body">
                                                     <table class="table">
@@ -165,7 +165,7 @@
                                                             <tr>
                                                                 <th scope="col">#</th>
                                                                 <th scope="col">Nombre</th>
-                                                                <th scope="col">Total</th>
+                                                                <th scope="col">Tamaño de la partición</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="bodyTablaParticiones"></tbody>
@@ -177,7 +177,7 @@
                                         <div class="col">
                                             <div class="card new-page">
                                                 <div class="card-header titulo-4">
-                                                    <h2 class="h3">Gráfica</h2>
+                                                    <h2 class="h3">Grafico de particiones</h2>
                                                 </div>
                                                 <div class="card-body">
                                                     <div style="width: 100%; height: 100%; overflow: hidden; "
@@ -195,7 +195,7 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header titulo-3">
-                                        <h2 class=" h3">Usuarios Creados</h2>
+                                        <h2 class=" h3">Usuarios creados</h2>
                                     </div>
                                     <div class="card-body">
                                         <table class="table">
@@ -204,10 +204,10 @@
 
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Nombre</th>
-                                                    <th scope="col">NombreCompleto</th>
-                                                    <th scope="col">NoHab</th>
-                                                    <th scope="col">telefono Oficina</th>
-                                                    <th scope="col">telefono Casa</th>
+                                                    <th scope="col">Nombre Completo</th>
+                                                    <th scope="col">#Hab</th>
+                                                    <th scope="col">Telefono Oficina</th>
+                                                    <th scope="col">Telefono Casa</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="bodyTablaUsuariosCreados"></tbody>
@@ -224,21 +224,21 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header text-center titulo-2">
-                        <span class="h3">Información general</span>
+                        <span class="h3">Información específica</span>
                     </div>
                     <div class="card-body">
                         <div class="row mb-4">
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header titulo-3">
-                                        <span class="h3">RAM</span>
+                                        <span class="h3">Uso de recursos</span>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="card">
                                                     <div class="card-header titulo-4">
-                                                        <span class="h3">Top procesos</span>
+                                                        <span class="h3">Top procesos y uso de CPU</span>
                                                     </div>
                                                     <div class=" card-body">
                                                         <div class="d-flex justify-content-center" id="top-procesos">
@@ -249,7 +249,7 @@
                                             <div class="col-4">
                                                 <div class="card">
                                                     <div class="card-header titulo-4">
-                                                        <span class="h3">Uso de Ram</span>
+                                                        <span class="h3">Uso de RAM</span>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="d-flex justify-content-center" id="uso-de-ram">
@@ -266,14 +266,14 @@
                             <div class="col">
                                 <div class="card new-page">
                                     <div class="card-header titulo-3">
-                                        <span class="h3">Almacenamiento</span>
+                                        <span class="h3">Uso de almacenamiento en disco</span>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-6 offset-3">
                                                 <div class="card">
                                                     <div class="card-header titulo-4">
-                                                        <span class="h3">Uso total de almacenamiento</span>
+                                                        <span class="h3">Uso total de almacenamiento de la máquina</span>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="d-flex justify-content-center" id="uso-de-disco">
@@ -341,10 +341,11 @@
         google.charts.setOnLoadCallback(dibujarGraficaUsoDeCadaDisco);
         google.charts.setOnLoadCallback(dibujarGraficaTopProcesos);
 
+       
+        var datos = 
+		{   
+            //ZonaDeCambio+
 
-
-        var datos =
-        {
             'nombreEquipo': 'jefferson-VirtualBox',
             'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '3', 'telOficina': '4', 'telCasa': '888' } },
             'todosLosUsuarios': { '0': { 'nombre': 'root', 'nombreCompleto': 'root' }, '1': { 'nombre': 'daemon', 'nombreCompleto': 'daemon' }, '2': { 'nombre': 'bin', 'nombreCompleto': 'bin' }, '3': { 'nombre': 'sys', 'nombreCompleto': 'sys' }, '4': { 'nombre': 'sync', 'nombreCompleto': 'sync' }, '5': { 'nombre': 'games', 'nombreCompleto': 'games' }, '6': { 'nombre': 'man', 'nombreCompleto': 'man' }, '7': { 'nombre': 'lp', 'nombreCompleto': 'lp' }, '8': { 'nombre': 'mail', 'nombreCompleto': 'mail' }, '9': { 'nombre': 'news', 'nombreCompleto': 'news' }, '10': { 'nombre': 'uucp', 'nombreCompleto': 'uucp' }, '13': { 'nombre': 'proxy', 'nombreCompleto': 'proxy' }, '33': { 'nombre': 'www-data', 'nombreCompleto': 'www-data' }, '34': { 'nombre': 'backup', 'nombreCompleto': 'backup' }, '38': { 'nombre': 'list', 'nombreCompleto': 'Mailing List Manager' }, '39': { 'nombre': 'irc', 'nombreCompleto': 'ircd' }, '41': { 'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)' }, '65534': { 'nombre': 'nobody', 'nombreCompleto': 'nobody' }, '100': { 'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '101': { 'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '102': { 'nombre': 'syslog', 'nombreCompleto': '' }, '103': { 'nombre': 'messagebus', 'nombreCompleto': '' }, '104': { 'nombre': '_apt', 'nombreCompleto': '' }, '105': { 'nombre': 'uuidd', 'nombreCompleto': '' }, '106': { 'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '107': { 'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '108': { 'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '109': { 'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '110': { 'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '111': { 'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '112': { 'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager' }, '113': { 'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '114': { 'nombre': 'saned', 'nombreCompleto': '' }, '115': { 'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '116': { 'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '117': { 'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '118': { 'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '119': { 'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '120': { 'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '121': { 'nombre': 'geoclue', 'nombreCompleto': '' }, '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '999': { 'nombre': 'vboxadd', 'nombreCompleto': '' }, '1001': { 'nombre': 'camilo', 'nombreCompleto': '' }, '1002': { 'nombre': 'jazmin', 'nombreCompleto': '' }, '1003': { 'nombre': 'lucrecia', 'nombreCompleto': '' } },
@@ -362,7 +363,9 @@
             'usoDeRAM': 0.29212069062572876,
             'usoDeSWAP': 0.0,
             'usoDeDisco': { '/dev/sda1': 40, '/dev/sda2': 80 }
+            //ZonaDeCambio-
         }
+        
 
 
         // Metodo que se encarga de ejecutar los diferentes metodos
@@ -438,7 +441,7 @@
 
 
             var datos = [
-                ['City', '% uso CPU',],
+                ['Process', '% uso CPU',],
             ]
 
 
