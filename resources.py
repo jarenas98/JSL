@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 # Script que consulta datos de la máquina anfitrión
-# Autor: Sebastian Montes
+# Autor: Sebastian Montes. Jefferson Arenas, Luis Figueroa
 # Licencia GNU GPL v4
 
 import subprocess, re, sys, os
