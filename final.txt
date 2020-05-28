@@ -1,0 +1,231 @@
+// Metodo que se encarga de ejecutar los diferentes metodos
+        function main() {
+            // cambiar el titrulo del documento
+            document.getElementById('tituloPrincipal').innerHTML = `<h1 class="h1">Maquina: ${this.datos.nombreEquipo}</h1>`;
+            // cambiar el contedido del IP
+            document.getElementById('campoIp').innerHTML = `<h3 class="h3">${this.datos.ipEquipo}</h3>`;
+            // cambiar el contedido del MAC
+            document.getElementById('campoMAC').innerHTML = `<h3 class="h3">${this.datos.mac}</h3>`;
+            // cambiar el contedido del RAM TOTAL
+            document.getElementById('ramTotal').innerHTML = `<h3 class="h3">${this.datos.totalRAM} MB</h3>`;
+            // cambiar el contedido del SWAP TOTAL
+            document.getElementById('swapTotal').innerHTML = `<h3 class="h3">${this.datos.totalSwap} MB</h3>`;
+            // cambiar el contedido del CPU cores
+            document.getElementById('corestotales').innerHTML = `<h3 class="h3">${this.datos.cpuCores}</h3>`;
+            // cambiar el contedido del CPU Frec
+            document.getElementById('frecTotal').innerHTML = `<h3 class="h3">${this.datos.cpuFrec} MHz</h3>`;
+            // llenar tabla de particiones
+            this.insertDataParticiones();
+            // llena tabla de usuarios creados
+            this.insertarDataUsuariosCreados();
+            this.insertarDataUsuariosDelSistema();
+
+        }
+        // variable que almacenara la data para las particiones de la tabla 1
+        var datatablePart1 = [["Partición", "MB"]];
+        // Variable que almacenara el total de almacenamiento en MB
+        var totalAlmacenamiento = 0;
+        // permite pintar las particiones en la tabla de particiones
+        function insertDataParticiones() {
+
+            let res = "";
+            let contador = 1;
+
+            // Obteniendo todas las particiones de datos
+            for (var particion in this.datos.discos) {
+                res = res + `<tr><th scope="row">${contador}</th><td>${particion}</td> <td>${this.datos.discos[particion]} MB</td></tr>`;
+                totalAlmacenamiento = totalAlmacenamiento + this.datos.discos[particion];
+                datatablePart1.push([particion, this.datos.discos[particion]]);
+                contador++;
+            }
+
+            document.getElementById('bodyTablaParticiones').innerHTML = `${res}`;
+        }
+
+
+
+        function dibujarGraficaUsoDeRam() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['RAM', ((this.datos.usoDeRAM) * 100)],
+
+            ]);
+
+            var options = {
+                width: 460, height: 180,
+                redFrom: 90, redTo: 100,
+                yellowFrom: 75, yellowTo: 90,
+                minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('uso-de-ram'));
+
+            chart.draw(data, options);
+
+
+        }
+        function dibujarGraficaTopProcesos() {
+
+
+
+
+            var datos = [
+                ['City', '% uso CPU',],
+            ]
+
+
+
+            datos = datos.concat(Object.values(this.datos.topProcesos).map((item) => { return [item["Nombre del proceso"], parseFloat(item["Porcentaje de uso de CPU"])] }))
+
+
+            var data = google.visualization.arrayToDataTable(datos);
+
+            var options = {
+
+                chartArea: { width: '50%' },
+                hAxis: {
+                    title: 'Porcentaje de uso de CPU',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Nombre'
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('top-procesos'));
+
+            chart.draw(data, options);
+        }
+        function dibujarGraficaUsoDeDisco() {
+
+            const total_discos = Object.values(this.datos.discos).reduce((a, b) => a + b, 0)
+
+            const total_usado = Object.values(this.datos.usoDeDisco).reduce((a, b) => a + b, 0)
+
+
+            const info = (total_usado * 100) / total_discos
+
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['Total', info],
+
+            ]);
+
+            var options = {
+                width: 460, height: 180,
+                redFrom: 90, redTo: 100,
+                yellowFrom: 75, yellowTo: 90,
+                minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('uso-de-disco'));
+
+            chart.draw(data, options);
+
+
+        }
+        function dibujarGraficaUsoDeCadaDisco() {
+
+            let info = [['Label', 'Value']];
+
+            obj = this.datos.usoDeDisco
+
+            for (const prop in obj) {
+                info = info.concat([[prop, ((obj[prop] * 100) / this.datos.discos[prop])]])
+            }
+
+
+
+
+            var data = google.visualization.arrayToDataTable(info);
+
+            var options = {
+                width: 460, height: 180,
+                redFrom: 90, redTo: 100,
+                yellowFrom: 75, yellowTo: 90,
+                minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('uso-por-disco'));
+
+            chart.draw(data, options);
+
+
+        }
+        function dibujarGraficaParticiones() {
+            var data = google.visualization.arrayToDataTable(this.datatablePart1, false);
+
+
+            var options = {
+                title: "Total = " + `${this.totalAlmacenamiento}` + " MB",
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+        // Obteniendo todas los usuarios creados y los pinta
+        function insertarDataUsuariosCreados() {
+            let res = "";
+
+            for (var usuario in this.datos.usuariosReales) {
+
+
+                res = res + `
+                <tr>
+                    <th scope="row">${usuario}</th>
+                    <td>${this.datos.usuariosReales[usuario].nombre}</td>
+                    <td>${this.datos.usuariosReales[usuario].nombreCompleto}</td>
+                    <td>${this.datos.usuariosReales[usuario].noHab}</td>
+                    <td>${this.datos.usuariosReales[usuario].telOficina}</td>
+                    <td>${this.datos.usuariosReales[usuario].telCasa}</td>
+                </tr>`;
+
+
+            }
+
+            document.getElementById('bodyTablaUsuariosCreados').innerHTML = `${res}`;
+        }
+        function insertarDataUsuariosDelSistema() {
+            let res = "";
+
+            for (var usuario in this.datos.todosLosUsuarios) {
+
+
+                res = res + `
+                <tr>
+                    <th scope="row">${usuario}</th>
+                    <td>${this.datos.todosLosUsuarios[usuario].nombre}</td>
+                    <td>${this.datos.todosLosUsuarios[usuario].nombreCompleto}</td>
+                </tr>`;
+
+
+            }
+
+            document.getElementById('bodyTablaUsuariosDelSistema').innerHTML = `${res}`;
+        }
+
+
+        this.main();
+
+    </script>
+
+
+
+
+    <!-- BOOTSTRAP Scrips -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

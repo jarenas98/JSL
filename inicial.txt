@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP css  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <style>
+        :root {
+            --color-1: #343a40;
+            --color-primary: #004d40;
+            --color-secondary: #00796b;
+            --color-tertiary: #4db6ac;
+            --color-white: floralwhite;
+        }
+
+
+
+        body {
+            background-color: #0000000a;
+            color: #000000d4;
+            text-align: center;
+        }
+
+        .titulo-1 {
+            background-color: var(--color-1);
+            color: var(--color-white)
+        }
+
+        .titulo-2 {
+            background-color: var(--color-primary);
+            color: var(--color-white)
+        }
+
+        .titulo-3 {
+            background-color: var(--color-secondary);
+            color: var(--color-white)
+        }
+
+        .titulo-4 {
+            background-color: var(--color-tertiary);
+            color: var(--color-white)
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Reload</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid p-0">
+        <div id="tituloPrincipal" class="titulo-1 d-flex justify-content-center align-items-center">
+        </div>
+    </div>
+
+    <main role="main" class="container pt-4">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-center titulo-2">
+                        <span class="h3">Información general</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header titulo-4">
+                                        <h2 class="h3 text-center">IP</h2>
+                                    </div>
+                                    <div id="campoIp" class="card-body"></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header titulo-4">
+                                        <h2 class="h3">MAC</h2>
+                                    </div>
+                                    <div id="campoMAC" class="card-body"></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header titulo-4">
+                                        <h2 class="h3">RAM TOTAL</h2>
+                                    </div>
+                                    <div id="ramTotal" class="card-body"></div>
+                                </div>
+                            </div>
+                            <div class="col-4 mt-4">
+                                <div class="card">
+                                    <div class="card-header titulo-4">
+                                        <h2 class="h3">SWAP TOTAL</h2>
+                                    </div>
+                                    <div id="swapTotal" class="card-body"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <h2 class="h3">CPU</h2>
+                                    </div>
+                                    <div id="cpu" class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <h2 class="h3"># Nucleos</h2>
+                                                    </div>
+                                                    <div id="corestotales" class="card-body"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <h2 class="h3">Frecuencia Total</h2>
+                                                    </div>
+                                                    <div id="frecTotal" class="card-body"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <h2 class="h3">Almacenamiento</h2>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-header titulo-4">
+                                                    <h2 class="h3">Particiones</h2>
+                                                </div>
+                                                <div class="card-body">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="bodyTablaParticiones"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-header titulo-4">
+                                                    <h2 class="h3">Grafica</h2>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div style="width: 100%; height: 100%; overflow: hidden; "
+                                                        class=" align-items-center">
+                                                        <div id="donutchart"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <h2 class=" h3">Usuarios Creados</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">NombreCompleto</th>
+                                                    <th scope="col">NoHab</th>
+                                                    <th scope="col">telefono Oficina</th>
+                                                    <th scope="col">telefono Casa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="bodyTablaUsuariosCreados"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-center titulo-2">
+                        <span class="h3">Información general</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <span class="h3">RAM</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <span class="h3">Top procesos</span>
+                                                    </div>
+                                                    <div class=" card-body">
+                                                        <div class="d-flex justify-content-center" id="top-procesos">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <span class="h3">Uso de Ram</span>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-center" id="uso-de-ram">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <span class="h3">Almacenamiento</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-6 offset-3">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <span class="h3">Uso total de almacenamiento</span>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-center" id="uso-de-disco">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header titulo-4">
+                                                        <span class="h3">Uso por partición</span>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-center" id="uso-por-disco">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header titulo-3">
+                                        <span class="h3">Usuarios del sistema</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">NombreCompleto</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="bodyTablaUsuariosDelSistema"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart', "gauge"] });
+        google.charts.setOnLoadCallback(dibujarGraficaParticiones);
+        google.charts.setOnLoadCallback(dibujarGraficaUsoDeRam);
+        google.charts.setOnLoadCallback(dibujarGraficaUsoDeDisco);
+        google.charts.setOnLoadCallback(dibujarGraficaUsoDeCadaDisco);
+        google.charts.setOnLoadCallback(dibujarGraficaTopProcesos);
+        var datos =
