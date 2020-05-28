@@ -1,3 +1,4 @@
 #!/bin/bash
 
-wkhtmltopdf --javascript-delay 8000 ./Reporte.html reporte2.pdf
+wkhtmltopdf --javascript-delay 8000 index.html reporte.pdf
+xreader reporte
