@@ -45,6 +45,12 @@
             background-color: var(--color-tertiary);
             color: var(--color-white)
         }
+
+        @media print {
+            .new-page {
+                page-break-before: always;
+            }
+        }
     </style>
 
 
@@ -53,7 +59,7 @@
 
 <body>
 
-    
+
 
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">JSL Software</a>
@@ -169,9 +175,9 @@
                                         </div>
                                         <br />
                                         <div class="col">
-                                            <div class="card">
+                                            <div class="card new-page">
                                                 <div class="card-header titulo-4">
-                                                    <h2 class="h3">Grafica</h2>
+                                                    <h2 class="h3">Gráfica</h2>
                                                 </div>
                                                 <div class="card-body">
                                                     <div style="width: 100%; height: 100%; overflow: hidden; "
@@ -258,7 +264,7 @@
                         </div>
                         <div class="row mb-4">
                             <div class="col">
-                                <div class="card">
+                                <div class="card new-page">
                                     <div class="card-header titulo-3">
                                         <span class="h3">Almacenamiento</span>
                                     </div>
@@ -337,8 +343,8 @@
 
 
 
-        var datos = 
-		{
+        var datos =
+        {
             'nombreEquipo': 'jefferson-VirtualBox',
             'usuariosReales': { '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '3', 'telOficina': '4', 'telCasa': '888' } },
             'todosLosUsuarios': { '0': { 'nombre': 'root', 'nombreCompleto': 'root' }, '1': { 'nombre': 'daemon', 'nombreCompleto': 'daemon' }, '2': { 'nombre': 'bin', 'nombreCompleto': 'bin' }, '3': { 'nombre': 'sys', 'nombreCompleto': 'sys' }, '4': { 'nombre': 'sync', 'nombreCompleto': 'sync' }, '5': { 'nombre': 'games', 'nombreCompleto': 'games' }, '6': { 'nombre': 'man', 'nombreCompleto': 'man' }, '7': { 'nombre': 'lp', 'nombreCompleto': 'lp' }, '8': { 'nombre': 'mail', 'nombreCompleto': 'mail' }, '9': { 'nombre': 'news', 'nombreCompleto': 'news' }, '10': { 'nombre': 'uucp', 'nombreCompleto': 'uucp' }, '13': { 'nombre': 'proxy', 'nombreCompleto': 'proxy' }, '33': { 'nombre': 'www-data', 'nombreCompleto': 'www-data' }, '34': { 'nombre': 'backup', 'nombreCompleto': 'backup' }, '38': { 'nombre': 'list', 'nombreCompleto': 'Mailing List Manager' }, '39': { 'nombre': 'irc', 'nombreCompleto': 'ircd' }, '41': { 'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)' }, '65534': { 'nombre': 'nobody', 'nombreCompleto': 'nobody' }, '100': { 'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '101': { 'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '102': { 'nombre': 'syslog', 'nombreCompleto': '' }, '103': { 'nombre': 'messagebus', 'nombreCompleto': '' }, '104': { 'nombre': '_apt', 'nombreCompleto': '' }, '105': { 'nombre': 'uuidd', 'nombreCompleto': '' }, '106': { 'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '107': { 'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '108': { 'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '109': { 'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '110': { 'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '111': { 'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '112': { 'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager' }, '113': { 'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '114': { 'nombre': 'saned', 'nombreCompleto': '' }, '115': { 'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '116': { 'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '117': { 'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '118': { 'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '119': { 'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '120': { 'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '121': { 'nombre': 'geoclue', 'nombreCompleto': '' }, '1000': { 'nombre': 'jefferson', 'nombreCompleto': 'Jefferson', 'noHab': '', 'telOficina': '', 'telCasa': '' }, '999': { 'nombre': 'vboxadd', 'nombreCompleto': '' }, '1001': { 'nombre': 'camilo', 'nombreCompleto': '' }, '1002': { 'nombre': 'jazmin', 'nombreCompleto': '' }, '1003': { 'nombre': 'lucrecia', 'nombreCompleto': '' } },
