@@ -51,16 +51,24 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <br>
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4" align="center">
                         <h1 id="tituloPrincipal" class="m-0 font-weight-bold text-primary"></h1>
                     </div>
-                    <hr>
 
-                    <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4" align="center">
-                        <h1 style="font-weight: 900; font-size: 2.2em;" class="h3 mb-0 text-gray-800">Información
-                            general de administración</h1>
-                    </div>
+                    <br>
+                    <hr>
+                    <br>
+
+                    <div class="card mb-3">
+                        <img src="img/admin.png" class="card-img-top" alt="Aspectos administrativos" >
+                        <div class="card-body">
+                          <h5 class="card-title">Información general de administración</h5>
+                          <p class="card-text">En esta sección usted podrá encontrar información relacionada a las características de la máquina y a los recursos de los cuales esta dispone.</p>
+                          <p class="card-text"><small class="text-muted">Sección administrativa</small></p>
+                        </div>
+                      </div>
                     <hr>
 
                     <div class="card">
@@ -209,142 +217,119 @@
                         </div>
                     </div>
                    
-
-                    <div class="new-page d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Almacenamiento</h1>
-                    </div>
                     <hr>
 
-                    <div class="row">
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-gray-800" align="center">Almacenamiento</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
+                                        <div class="border-left-primary card shadow mb-4">
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-primary">Particiones</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="chart-area">
+                                                    <table class="table table-bordered table table-sm table-striped">
+                                                        <thead class="thead">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Tamaño de la partición</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="bodyTablaParticiones">
 
-                        <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-primary card shadow mb-4">
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Particiones</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <table class="table">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Tamaño de la partición</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="bodyTablaParticiones">
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-success card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-success">Gráfico de particionamiento</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
+                                        <div class="border-left-success card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-success">Gráfico de particionamiento</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div style="display: flex; height: auto; align-items: center; justify-content: center;"
+                                                    class="chart-area">
+                                                    <div id="donutchart"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div style="display: flex; height: auto; align-items: center; justify-content: center;"
-                                        class="chart-area">
-                                        <div id="donutchart"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Usuarios creados</h1>
-                    </div>
                     <hr>
 
-                    <div class="row">
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 offset-xl-2 col-lg-12">
-                            <div class="border-left-info card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 id="totalUsuariosCreados" class="m-0 font-weight-bold text-info"></h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div style="height: auto;" class="chart-area">
-                                        <table class="table">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Nombre Completo</th>
-                                                    <th scope="col"># Habitaciones</th>
-                                                    <th scope="col">Teléfono Oficina</th>
-                                                    <th scope="col">Teléfono Casa</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="bodyTablaUsuariosCreados">
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-gray-800" align="center">Usuarios reales</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <!-- Area Chart -->
+                                    <div class="col-xl-8 offset-xl-2 col-lg-12">
+                                        <div class="border-left-info card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 id="totalUsuariosCreados" class="m-0 font-weight-bold text-info"></h6> 
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div style="height: auto;" class="chart-area">
+                                                    <table class="table table-bordered table table-sm table-striped">
+                                                        <thead class="thead">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Nombre Completo</th>
+                                                                <th scope="col"># Habitaciones</th>
+                                                                <th scope="col">Teléfono Oficina</th>
+                                                                <th scope="col">Teléfono Casa</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="bodyTablaUsuariosCreados">
 
-                                            </tbody>
-                                        </table>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="new-page d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 style="font-weight: 900; font-size: 2.2em;" class="h3 mb-0 text-gray-800">Información
-                            técnica específica</h1>
-                    </div>
+                    <br>
+                    <hr>
+                    <br>
+
+                    <div class="card mb-3">
+                        <div align="center">
+                            <img src="img/tec.png" class="card-img-top img" alt="Aspectos técnicos">
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Información técnica específica</h5>
+                          <p class="card-text">En esta sección usted podrá encontrar información relacionada a los recursos disponibles en la máquina, información sobre procesos y usuarios avanzados</p>
+                          <p class="card-text"><small class="text-muted">Sección técnica</small></p>
+                        </div>
+                      </div>
+
                     <hr>
 
                     <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4">
@@ -360,20 +345,6 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Top 5 de procesos sobre CPU</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -390,20 +361,6 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-info">Uso de CPU</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -418,20 +375,6 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-danger">Uso de RAM</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -456,20 +399,6 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-success">Uso total de almacenamiento de la
                                         máquina</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -486,20 +415,6 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-info">Uso por partición</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -527,26 +442,12 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 id="totalUsuariosSistema" class="m-0 font-weight-bold text-danger">Listado de
                                         usuarios del sistema</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div style="height: auto;" class="chart-area">
-                                        <table class="table">
-                                            <thead class="thead-dark">
+                                        <table class="table table-bordered table table-sm table-striped">
+                                            <thead class="thead">
                                                 <tr>
                                                     <th scope="col">#</th>
                                                     <th scope="col">Nombre</th>
@@ -569,7 +470,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Universidad del Quindío - Sistemas operativos GNU Linux 1 - 2020</span>
+                            <span id="piePg" ></span>
                         </div>
                     </div>
                 </footer>
@@ -608,14 +509,14 @@
             var datos =
 
                 //ZonaDeCambio+
-{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 42, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 3039, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 3, 'cpuFrec': 3591.684, 'topProcesos': {'1401': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '15.4', 'Tiempo de ejecución': '52:00'}, '1628': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '5.4', 'Tiempo de ejecución': '18:14'}, '8463': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'xreader', 'Porcentaje de uso de CPU': '4.4', 'Tiempo de ejecución': '0:03'}, '1035': {'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '1.4', 'Tiempo de ejecución': '4:48'}, '4487': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de CPU': '1.1', 'Tiempo de ejecución': '3:09'}}, 'usoDeCPU': 9.5, 'usoDeRAM': 73.7, 'usoDeSWAP': 4.25, 'usoDeDisco': {'/dev/sda1': 40}}
+{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 42, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 3039, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 3, 'cpuFrec': 3591.684, 'topProcesos': {'1401': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '17.5', 'Tiempo de ejecución': '72:41'}, '1628': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '6.0', 'Tiempo de ejecución': '25:00'}, '1035': {'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '1.6', 'Tiempo de ejecución': '6:44'}, '4487': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de CPU': '1.5', 'Tiempo de ejecución': '5:23'}, '1739': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '1.4', 'Tiempo de ejecución': '6:13'}}, 'usoDeCPU': 10.8, 'usoDeRAM': 68.7, 'usoDeSWAP': 8.05, 'usoDeDisco': {'/dev/sda1': 41}, 'fecha': 'Reporte generado el día 29 del mes 05 del año 2020, a las 16:54:57'}
 
 
                 // Método que se encarga de ejecutar los diferentes métodos
                 function main() {
                     console.log(this.datos.ipEquipo)
                     // cambiar el titrulo del documento
-                    document.getElementById('tituloPrincipal').innerText = `Panel de información - Máquina: ${this.datos.nombreEquipo}`;
+                    document.getElementById('tituloPrincipal').innerText = `GNU Linux - Reporte de información | Máquina: ${this.datos.nombreEquipo}`;
                     // cambiar el contedido del IP
                     document.getElementById('campoIp').innerText = `${this.datos.ipEquipo}`;
                     // cambiar el contedido del MAC
@@ -638,7 +539,7 @@
                     this.insertarDataUsuariosCreados();
                     this.insertarDataUsuariosDelSistema();
 
-
+                    this.insertarFecha();
 
                 }
             // variable que almacenara la data para las particiones de la tabla 1
@@ -782,7 +683,6 @@
                 obj = this.datos.usoDeDisco
 
                 for (const prop in obj) {
-                    console.log(prop)
                     info = info.concat([[prop, this.datos.usoDeDisco[prop]]])
                 }
 
@@ -861,7 +761,11 @@
                 document.getElementById('bodyTablaUsuariosDelSistema').innerHTML = `${res}`;
             }
 
-            console.log("hola")
+            function insertarFecha(){
+                f = new Date();
+                document.getElementById("piePg").innerHTML = "Universidad del Quindío - Sistemas operativos GNU Linux 1 | " + datos.fecha ;
+            }
+
             this.main();
 
         </script>

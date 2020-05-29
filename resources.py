@@ -6,6 +6,8 @@
 # Licencia GNU GPL v4
 
 import subprocess, re, sys, os
+from datetime import datetime
+from datetime import timedelta
 
 # Función que retorna el nombre del host o máquina actual
 def getHostname():
@@ -209,5 +211,6 @@ resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["usoDeRAM"] = getRAMUsagePercentage()
 resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
 resultSet["usoDeDisco"] = getAllDisksUsagePercentage()
+resultSet["fecha"] = datetime.now().strftime("Reporte generado el día %d del mes %m del año %Y, a las %H:%M:%S")
 
 sys.stdout.write(str(resultSet)+"\n")
