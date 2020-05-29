@@ -332,132 +332,146 @@
 
                     <hr>
 
-                    <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Uso de recursos</h1>
-                    </div>
-                    <hr>
-
-                    <div class="row">
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-primary card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Top 5 de procesos sobre CPU</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <div class="d-flex justify-content-center" id="top-procesos">
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-white bg-primary" align="center">Uso de recursos</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <!-- Area Chart -->
+                                    <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
+                                        <div class="border-left-primary card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Top 5 de procesos sobre CPU</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="chart-area">
+                                                    <div class="d-flex justify-content-center" id="top-procesos">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 offset-xl-2 offset-lg-3 col-lg-7">
+                                        <div class="border-left-danger card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Uso de CPU</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center" id="uso-de-cpu">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4">
+                                        <div class="border-left-info card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Uso de RAM</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center" id="uso-de-ram">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4">
+                                        <div class="border-left-success card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Uso de SWAP</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-center" id="uso-de-swap">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-info card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-info">Uso de CPU</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-center" id="uso-de-cpu">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="border-left-danger card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-danger">Uso de RAM</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-center" id="uso-de-ram">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Uso de almacenamiento en disco</h1>
-                    </div>
-                    <hr>
+                                <div class="row">
+                                    <!-- Pie Chart -->
+                                    <div class="col-xl-4 offset-xl-2 offset-lg-3 col-lg-7">
+                                        <div class="border-left-secondary card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Uso total de almacenamiento de la
+                                                    máquina</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
 
-                    <div class="row">
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-success card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-success">Uso total de almacenamiento de la
-                                        máquina</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
+                                                <div class="d-flex justify-content-center" id="uso-de-disco"></div>
 
-                                    <div class="d-flex justify-content-center" id="uso-de-disco"></div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="new-page border-left-info card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-info">Uso por partición</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <div class="d-flex justify-content-center" id="uso-por-disco">
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="col-xl-4 col-lg-4">
+                                        <div class="new-page border-left-secondary card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 class="m-0 font-weight-bold text-dark">Uso por partición</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="chart-area">
+                                                    <div class="d-flex justify-content-center" id="uso-por-disco">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <!-- /.container-fluid -->
+                    
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-white bg-danger" align="center">Usuarios en el sistema</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="col-xl-8 offset-xl-2 col-lg-12">
+                                        <div class="border-left-danger card shadow mb-4">
+                                            <!-- Card Header - Dropdown -->
+                                            <div
+                                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                <h6 id="totalUsuariosSistema" class="m-0 font-weight-bold text-danger">Listado de
+                                                    usuarios del sistema</h6>
+                                            </div>
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div style="height: auto;" class="chart-area">
+                                                    <table class="table table-bordered table table-sm table-striped">
+                                                        <thead class="thead">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Nombre Completo</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="bodyTablaUsuariosDelSistema">
 
-                    <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Usuarios del sistema</h1>
-                    </div>
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-xl-8 offset-xl-2 col-lg-12">
-                            <div class="border-left-danger card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 id="totalUsuariosSistema" class="m-0 font-weight-bold text-danger">Listado de
-                                        usuarios del sistema</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div style="height: auto;" class="chart-area">
-                                        <table class="table table-bordered table table-sm table-striped">
-                                            <thead class="thead">
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Nombre Completo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="bodyTablaUsuariosDelSistema">
-
-                                            </tbody>
-                                        </table>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
