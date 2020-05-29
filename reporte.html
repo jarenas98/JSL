@@ -64,139 +64,151 @@
                     <hr>
 
                     <div class="card">
-                        <div class="card-header h3 mb-0 text-gray-800" align="center">Información general de la máquina</div>
-                            <div class="py-3 d-flex flex-row align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <!-- Content Row -->
-                                    <div class="row">
-
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-primary shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                Dirección IP principal
-                                                            </div>
-                                                            <div id="campoIp" class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fab fa-redhat fa-2x text-gray-300"></i>
-                                                        </div>
+                        <div class="card-header h3 mb-0 text-gray-800" align="center">Información del procesador (CPU)</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="col-xl-3 offset-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-danger shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                            Cantidad de núcleos</div>
+                                                        <div id="corestotales" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-cubes fa-2x text-gray-300"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <!-- Earnings (Monthly) Card Example -->
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-success shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Dirección MAC
-                                                                principal</div>
-                                                            <div id="campoMAC" class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-laptop fa-2x text-gray-300"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-info shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Memoria
-                                                                RAM total</div>
-                                                            <div class="row no-gutters align-items-center">
-                                                                <div class="col-auto">
-                                                                    <div id="ramTotal"
-                                                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
-                                                                </div>
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-success shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                            Frecuencia Total</div>
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col-auto">
+                                                                <div id="frecTotal" class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-memory fa-2x text-gray-300"></i>
-                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-3 col-md-6 mb-4">
-                                            <div class="card border-left-warning shadow h-100 py-2">
-                                                <div class="card-body">
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-2">
-                                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                                Memoria SWAP total</div>
-                                                            <div id="swapTotal" class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <i class="fas fa-sync-alt fa-2x text-gray-300"></i>
-                                                        </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-wave-square fa-2x text-gray-300"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                            </div>
                         </div>
                     </div>
-
-                    <div class="d-sm-flex align-items-center justify-content-center mb-4 mt-4">
-                        <h1 class="h3 mb-0 text-gray-800">Procesador (CPU)</h1>
-                    </div>
+                    
                     <hr>
 
-                    <div class="row">
-
-
-                        <div class="col-xl-3 offset-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                Cantidad de núcleos</div>
-                                            <div id="corestotales" class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-cubes fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Frecuencia Total</div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div id="frecTotal"
-                                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-gray-800" align="center">Información del procesador (CPU)</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="col-xl-3 offset-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-info shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Memoria
+                                                            RAM total</div>
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col-auto">
+                                                                <div id="ramTotal"
+                                                                    class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-memory fa-2x text-gray-300"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-wave-square fa-2x text-gray-300"></i>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-warning shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                            Memoria SWAP total</div>
+                                                        <div id="swapTotal" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-sync-alt fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <hr>
+
+                    <div class="card">
+                        <div class="card-header h3 mb-0 text-gray-800" align="center">Información del procesador (CPU)</div>
+                        <div class="py-3 d-flex flex-row align-items-center justify-content-center">
+                            <div class="card-body">
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="col-xl-3 offset-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                            Dirección IP principal
+                                                        </div>
+                                                        <div id="campoIp" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fab fa-redhat fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6 mb-4">
+                                        <div class="card border-left-success shadow h-100 py-2">
+                                            <div class="card-body">
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Dirección MAC
+                                                            principal</div>
+                                                        <div id="campoMAC" class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-laptop fa-2x text-gray-300"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
 
                     <div class="new-page d-sm-flex align-items-center justify-content-center mb-4 mt-4">
                         <h1 class="h3 mb-0 text-gray-800">Almacenamiento</h1>
@@ -550,7 +562,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- End of Main Content -->
 
@@ -558,7 +569,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Universidad del Quindío - Sistemas operativos GNU Linux 1 2020</span>
+                            <span>Universidad del Quindío - Sistemas operativos GNU Linux 1 - 2020</span>
                         </div>
                     </div>
                 </footer>
