@@ -29,6 +29,12 @@
     .chart-area {
         height: auto;
     }
+
+    @media print {
+        .new-page {
+            page-break-before: always;
+        }
+    }
 </style>
 
 <body id="page-top">
@@ -516,7 +522,7 @@
 
                     </div>
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+                    <div class="new-page d-sm-flex align-items-center justify-content-between mb-4 mt-4">
                         <h1 class="h3 mb-0 text-gray-800">Almacenamiento</h1>
                     </div>
                     <hr>
@@ -730,7 +736,7 @@
                             </div>
                         </div>
                         <div class="col-xl-8 offset-xl-2 offset-lg-3 col-lg-7">
-                            <div class="border-left-danger card shadow mb-4">
+                            <div class="new-page border-left-danger card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
