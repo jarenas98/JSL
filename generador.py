@@ -43,4 +43,3 @@ p = subprocess.Popen ("wkhtmltopdf --javascript-delay 8000 " + nombreReporte + "
 p.wait()
 sys.stdout.write(p.stdout.read().decode())
 sys.stderr.write(p.stderr.read().decode())
-
