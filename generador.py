@@ -40,7 +40,7 @@ contenidoReporte = "".join(contenidoReporte)
 reporte.write(contenidoReporte)
 reporte.close()
 
-sys.stdout.write("Generando informe en PDF por favor espere")
+print("Generando informe de gestión en PDF por favor espere...")
 # Se transforma el reporte a pdf
 p = subprocess.Popen ("wkhtmltopdf --javascript-delay 8000 " + nombreReporte + ".html " + nombreReporte + ".pdf", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     #Se espera que acabe el subproceso para mostrar la salida decodificada
