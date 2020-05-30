@@ -90,22 +90,52 @@ def getTotalSWAP():
     p.wait()
     return int(re.sub(" +"," ", p.stdout.read().decode()).split(" ")[1])
 
-# Función que retorna un diccionario de diccionarios con información de discos y particiones, 
+# Función que retorna un diccionario de diccionarios con información de particiones y particiones, 
 # la llave de cada diccionario es el nombre del disco-partición y su contenido es la cantidad 
 # de espacio en Megabytes que tiene.
+def getAllPartitions():
+
+    p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    particiones = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+
+    particionesDict={}
+    for particionRaw in particiones:
+        particionRaw = particionRaw.split(" ")
+        if('/sd' in particionRaw[0]):
+            particionesDict[particionRaw[0]]=int(particionRaw[1])
+    return particionesDict
+
+# Función que retorna el total de almacenamiento SATA que tiene la máquina.
+def getAllSpace():
+
+    p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    particiones = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+
+    total = 0
+    for particionesRaw in particiones:
+        particionesRaw =  particionesRaw.split(" ") 
+        if('/sd' in particionesRaw[0]):
+            total = total + int(particionesRaw[1])
+    return total
+
+# Función que retorna el total de discos SATA que tiene la máquina.
 def getAllDisks():
 
     p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     #Se espera que acabe el subproceso para mostrar la salida decodificada
     p.wait()
-    discos = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+    particiones = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
 
-    discosDict={}
-    for discoRaw in discos:
-        discoRaw = discoRaw.split(" ")
-        if('/sd' in discoRaw[0]):
-            discosDict[discoRaw[0]]=int(discoRaw[1])
-    return discosDict
+    diskList=[]
+    for particionesRaw in particiones:
+        disco =  re.sub("[0-9]+","",particionesRaw.split(" ")[0]) 
+        if(('/sd' in disco) and (disco not in diskList)):
+            diskList.append(disco)
+    return len(diskList)
 
 # Función que retorna la cantidad de nucleos que tiene el CPU de la máquina
 def getCPUCores():
@@ -173,22 +203,22 @@ def getSWAPUsagePercentage():
     memoria = re.sub(" +"," ", pMemoria.stdout.read().decode()).split(" ")
     return round((int(memoria[2])/int(memoria[1]))*100,2)
 
-# Función que retorna un diccionario de diccionarios con información de discos, 
-# la llave de cada diccionario es el nombre del disco y su contenido es el porcentaje
-# de uso de espacio en ese disco
-def getAllDisksUsagePercentage():
+# Función que retorna un diccionario de diccionarios con información de particiones, 
+# la llave de cada diccionario es el nombre de la partición y su contenido es el porcentaje
+# de uso de espacio en esa particion
+def getAllPartitionsUsagePercentage():
 
     p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     #Se espera que acabe el subproceso para mostrar la salida decodificada
     p.wait()
-    discos = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+    particiones = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
 
-    discosDict={}
-    for discoRaw in discos:
-        discoRaw = discoRaw.split(" ")
-        if('/sd' in discoRaw[0]):
-            discosDict[discoRaw[0]]=int(discoRaw[4].replace("%",""))
-    return discosDict
+    particionesDict={}
+    for particionRaw in particiones:
+        particionRaw = particionRaw.split(" ")
+        if('/sd' in particionRaw[0]):
+            particionesDict[particionRaw[0]]=int(particionRaw[4].replace("%",""))
+    return particionesDict
 
 resultSet = {}
 
@@ -203,14 +233,16 @@ resultSet['ipEquipo'] = getIp()
 resultSet['mac'] = getMACAdd()
 resultSet['totalRAM'] = getTotalRAM()
 resultSet['totalSwap'] = getTotalSWAP()
-resultSet['particiones'] = getAllDisks()
+resultSet['particiones'] = getAllPartitions()
 resultSet['cpuCores'] = getCPUCores()
 resultSet['cpuFrec'] = getCPUFreq()
 resultSet["topProcesos"] = getTopPS()
 resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["usoDeRAM"] = getRAMUsagePercentage()
 resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
-resultSet["usoDeDisco"] = getAllDisksUsagePercentage()
+resultSet["usoDeParticiones"] = getAllPartitionsUsagePercentage()
+resultSet["totalAlmacenamiento"] = getAllSpace()
+resultSet["totalParticiones"] = getAllDisks()
 resultSet["fecha"] = datetime.now().strftime("Reporte generado el día %d del mes %m del año %Y, a las %H:%M:%S")
 
 sys.stdout.write(str(resultSet)+"\n")
