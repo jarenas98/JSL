@@ -6,6 +6,8 @@ tr {
     height: auto;
 }
 
+
+
 @media print {
     .new-page {
         page-break-before: always;
