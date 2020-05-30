@@ -5,6 +5,7 @@ google.charts.setOnLoadCallback(dibujarGraficaUsoDeDisco);
 google.charts.setOnLoadCallback(dibujarGraficaUsoDeCadaDisco);
 google.charts.setOnLoadCallback(dibujarGraficaTopProcesos);
 google.charts.setOnLoadCallback(dibujarGraficaUsoDeCPU);
+google.charts.setOnLoadCallback(dibujarGraficaUsoSwap);
 
 
 var datos =
@@ -70,7 +71,7 @@ function dibujarGraficaUsoDeRam() {
 
     var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['RAM', this.datos.usoDeRAM],
+        ['RAM', { v: this.datos.usoDeRAM, f: this.datos.usoDeRAM+"%" }],
 
     ]);
 
@@ -91,7 +92,7 @@ function dibujarGraficaUsoDeCPU() {
 
     var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['CPU', this.datos.usoDeCPU],
+        ['CPU', { v: this.datos.usoDeCPU, f: this.datos.usoDeCPU+"%" }],
 
     ]);
 
@@ -106,6 +107,27 @@ function dibujarGraficaUsoDeCPU() {
 
     chart.draw(data, options);
 
+
+}
+
+function dibujarGraficaUsoSwap(){
+
+    var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        ['CPU', { v: this.datos.usoDeSWAP, f: this.datos.usoDeSWAP+"%" }],
+
+    ]);
+
+    var options = {
+        width: 460, height: 180,
+        redFrom: 90, redTo: 100,
+        yellowFrom: 75, yellowTo: 90,
+        minorTicks: 5
+    };
+
+    var chart = new google.visualization.Gauge(document.getElementById('uso-de-swap'));
+
+    chart.draw(data, options);
 
 }
 function dibujarGraficaTopProcesos() {
@@ -159,7 +181,7 @@ function dibujarGraficaUsoDeDisco() {
 
     var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['Total', info],
+        ['Total', { v: info, f: info+"%" }],
 
     ]);
 
@@ -183,7 +205,7 @@ function dibujarGraficaUsoDeCadaDisco() {
     obj = this.datos.usoDeDisco
 
     for (const prop in obj) {
-        info = info.concat([[prop, this.datos.usoDeDisco[prop]]])
+        info = info.concat([[prop, { v: this.datos.usoDeDisco[prop], f: this.datos.usoDeDisco[prop]+"%"}]])
     }
 
 
