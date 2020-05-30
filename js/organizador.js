@@ -111,29 +111,28 @@ function dibujarGraficaUsoDeCPU() {
 function dibujarGraficaTopProcesos() {
 
 
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Nombre del proceso');
+    data.addColumn('number', 'Porcentaje de uso del CPU');
 
-
-    var datos = [
-        ['Process', '% uso CPU',],
-    ]
-
-
-
-    datos = datos.concat(Object.values(this.datos.topProcesos).map((item) => { return [item["Nombre del proceso"], parseFloat(item["Porcentaje de uso de CPU"])] }))
-
-
-    var data = google.visualization.arrayToDataTable(datos);
-
+    Object.values(datos.topProcesos).forEach(element => {
+        let porcentaje = parseFloat(element["Porcentaje de uso de CPU"])/100;
+        data.addRow([element["Nombre del proceso"],{ v: porcentaje , f: porcentaje*100+"%" }]);
+       
+    });
+    
     var options = {
 
         chartArea: { width: '50%' },
         hAxis: {
             title: 'Porcentaje de uso de CPU',
+            format : 'percent',
             minValue: 0
         },
         vAxis: {
-            title: 'Nombre'
-        }
+            title: 'Nombre del proceso'
+        },
+        legend: 'none' 
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('top-procesos'));
@@ -186,8 +185,6 @@ function dibujarGraficaUsoDeCadaDisco() {
     for (const prop in obj) {
         info = info.concat([[prop, this.datos.usoDeDisco[prop]]])
     }
-
-
 
 
     var data = google.visualization.arrayToDataTable(info);
