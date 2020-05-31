@@ -255,6 +255,22 @@ def getSpaceUsagePercentage():
             totalOcupado = totalOcupado + int(particionRaw[2])
     return round((totalOcupado/totalDeEspacio)*100,1)
 
+#Función que retorna la cantidad de usuarios que usa un shell en específico en un arreglo de arreglos
+def getShellUsage():
+    p = subprocess.Popen ('cat /etc/passwd | cut -d ":" -f7 | sort -nr | uniq -c', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    shells = re.sub(" +"," ", p.stdout.read().decode()).strip().split("\n")
+    shellsArr = []
+
+    for sheel in shells:
+        sheel = sheel.strip().split(" ")
+        shellsArr.append([sheel[1],sheel[0]])
+
+    return shellsArr
+
+    
+
 resultSet = {}
 
 # Se puede llamar a cada una de las llaver mostradas para obtener información 
@@ -280,6 +296,7 @@ resultSet["usoDeAlmacenamientoTotal"] = getSpaceUsagePercentage()
 resultSet["usoDeParticiones"] = getAllPartitionsUsagePercentage()
 resultSet["totalAlmacenamiento"] = getAllSpace()
 resultSet["totalParticiones"] = getAllDisks()
+resultSet["usoDeShells"] = getShellUsage()
 resultSet["fecha"] = datetime.now().strftime("Reporte generado el día %d del mes %m del año %Y, a las %H:%M:%S")
 
 sys.stdout.write(str(resultSet)+"\n")
