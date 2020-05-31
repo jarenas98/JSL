@@ -269,6 +269,20 @@ def getShellUsage():
 
     return shellsArr
 
+#Funcion que retorna los usuarios que están conectados en una arreglo de arreglos
+def getConnectedUsers():
+    p = subprocess.Popen ('w', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    usuarios = re.sub(" +"," ", p.stdout.read().decode()).strip().split("\n")
+    usuarios.pop(0)
+    usuarios.pop(0)
+    usuariosArr = []
+
+    for usuario in usuarios:
+        usuario = usuario.strip().split(" ")
+        usuariosArr.append([usuario[0],usuario[1],usuario[3]])
+    return usuariosArr
     
 
 resultSet = {}
@@ -297,6 +311,7 @@ resultSet["usoDeParticiones"] = getAllPartitionsUsagePercentage()
 resultSet["totalAlmacenamiento"] = getAllSpace()
 resultSet["totalParticiones"] = getAllDisks()
 resultSet["usoDeShells"] = getShellUsage()
+resultSet["usuariosConectados"] = getConnectedUsers()
 resultSet["fecha"] = datetime.now().strftime("Reporte generado el día %d del mes %m del año %Y, a las %H:%M:%S")
 
 sys.stdout.write(str(resultSet)+"\n")

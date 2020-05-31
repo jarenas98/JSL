@@ -9,11 +9,18 @@ google.charts.setOnLoadCallback(dibujarGraficarTopProcesosRAM);
 google.charts.setOnLoadCallback(dibujarGraficaUsoDeCPU);
 google.charts.setOnLoadCallback(dibujarGraficaUsoSwap);
 
+$(window).resize(function(){
+
+    dibujarGraficaUsoDeShells();
+    dibujarGraficarTopProcesosRAM();
+    dibujarGraficarTopProcesosCPU();
+
+  });
 
 var datos =
 
     //ZonaDeCambio+
-{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 42, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 4651, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 4, 'cpuFrec': 3591.688, 'topProcesosCPU': {'1491': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '19.7'}, '1741': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/proc/self/exe', 'Porcentaje de uso de CPU': '6.1'}, '1119': {'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '1.8'}, '1714': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '1.1'}, '4522': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '0.8'}}, 'topProcesosRAM': {'6223': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de RAM': '8.1'}, '1741': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/proc/self/exe', 'Porcentaje de uso de RAM': '7.9'}, '1491': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de RAM': '5.0'}, '4522': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de RAM': '4.2'}, '6410': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de RAM': '4.1'}}, 'usoDeCPU': 8.7, 'usoDeRAM': 43.7, 'usoDeSWAP': 0.03, 'usoDeAlmacenamientoTotal': 43.2, 'usoDeParticiones': {'/dev/sda1': 43.2}, 'totalAlmacenamiento': 20.0, 'totalParticiones': 1, 'usoDeShells': [['/usr/sbin/nologin', '35'], ['/bin/sync', '1'], ['/bin/false', '4'], ['/bin/bash', '2']], 'fecha': 'Reporte generado el día 30 del mes 05 del año 2020, a las 22:33:02'}
+{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}, '1001': {'nombre': 'sebas', 'nombreCompleto': ''}, '122': {'nombre': 'sshd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 44, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 4651, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 4, 'cpuFrec': 3591.688, 'topProcesosCPU': {'16313': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/bin/python3', 'Porcentaje de uso de CPU': '96.5'}, '1491': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '24.3'}, '1741': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/proc/self/exe', 'Porcentaje de uso de CPU': '5.9'}, '16258': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'xreader', 'Porcentaje de uso de CPU': '5.2'}, '14926': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de CPU': '3.5'}}, 'topProcesosRAM': {'1741': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/proc/self/exe', 'Porcentaje de uso de RAM': '8.2'}, '1491': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de RAM': '7.2'}, '1119': {'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de RAM': '6.1'}, '14867': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/lib/firefox/firefox', 'Porcentaje de uso de RAM': '6.0'}, '4522': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de RAM': '4.1'}}, 'usoDeCPU': 10.3, 'usoDeRAM': 54.9, 'usoDeSWAP': 0.05, 'usoDeAlmacenamientoTotal': 43.2, 'usoDeParticiones': {'/dev/sda1': 43.2}, 'totalAlmacenamiento': 20.0, 'totalParticiones': 1, 'usoDeShells': [['/usr/sbin/nologin', '36'], ['/bin/sync', '1'], ['/bin/sh', '1'], ['/bin/false', '4'], ['/bin/bash', '2']], 'usuariosConectados': [['montes', 'tty7', '16:06']], 'fecha': 'Reporte generado el día 31 del mes 05 del año 2020, a las 01:40:03'}
 
 
 // Método que se encarga de ejecutar los diferentes métodos
@@ -43,9 +50,10 @@ function main() {
     document.getElementById('totalUsuariosSistema').innerText = `Listado de usuarios del sistema - Total : ${this.datos.cantidadTotalUsuarios}`;
     // llenar tabla de particiones
     this.insertDataParticiones();
-    // llena tabla de usuarios creados
+    // llena tabla de usuarios creados y conectados
     this.insertarDataUsuariosCreados();
     this.insertarDataUsuariosDelSistema();
+    this.insertarDataUsuariosConectados();
 
     this.insertarFecha();
 
@@ -82,7 +90,7 @@ function dibujarGraficaUsoDeRam() {
     ]);
 
     var options = {
-        width: 460, height: 180,
+        
         redFrom: 90, redTo: 100,
         yellowFrom: 75, yellowTo: 90,
         minorTicks: 5
@@ -103,7 +111,6 @@ function dibujarGraficaUsoDeCPU() {
     ]);
 
     var options = {
-        width: 460, height: 180,
         redFrom: 90, redTo: 100,
         yellowFrom: 75, yellowTo: 90,
         minorTicks: 5
@@ -125,7 +132,6 @@ function dibujarGraficaUsoSwap(){
     ]);
 
     var options = {
-        width: 460, height: 180,
         redFrom: 90, redTo: 100,
         yellowFrom: 75, yellowTo: 90,
         minorTicks: 5
@@ -150,8 +156,6 @@ function dibujarGraficarTopProcesosCPU() {
     });
     
     var options = {
-
-        chartArea: { width: '50%' },
         hAxis: {
             title: 'Porcentaje de uso de CPU',
             format : 'percent',
@@ -160,6 +164,7 @@ function dibujarGraficarTopProcesosCPU() {
         vAxis: {
             title: 'Nombre del proceso'
         },
+        width: 500, height: 500,
         legend: 'none' 
     };
 
@@ -183,7 +188,6 @@ function dibujarGraficarTopProcesosRAM() {
     
     var options = {
 
-        chartArea: { width: '50%' },
         hAxis: {
             title: 'Porcentaje de uso de RAM',
             format : 'percent',
@@ -192,6 +196,7 @@ function dibujarGraficarTopProcesosRAM() {
         vAxis: {
             title: 'Nombre del proceso'
         },
+        width: 500, height: 500,
         legend: 'none' 
     };
 
@@ -212,7 +217,8 @@ function dibujarGraficaUsoDeShells() {
     });
     
     var options = {
-        title: 'Shells más usadas'
+        title: 'Shells más usadas',
+        width: 300, height: 300
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('uso-de-shells'));
@@ -232,7 +238,6 @@ function dibujarGraficaUsoDeAlmacenamiento() {
     ]);
 
     var options = {
-        width: 460, height: 180,
         redFrom: 90, redTo: 100,
         yellowFrom: 75, yellowTo: 90,
         minorTicks: 5
@@ -258,7 +263,6 @@ function dibujarGraficaDeUsoDeParticiones() {
     var data = google.visualization.arrayToDataTable(info);
 
     var options = {
-        width: 460, height: 180,
         redFrom: 90, redTo: 100,
         yellowFrom: 75, yellowTo: 90,
         minorTicks: 5
@@ -278,8 +282,6 @@ function dibujarGraficaParticiones() {
 
     var options = {
         title: "Total = " + `${this.totalAlmacenamiento}` + " MB",
-        width: 500,
-        height: 350,
         pieHole: 0.4,
         colors: ['#d1a36e', '#fde38d', '#e99d56', '#f3b49f', '#a15f3e', '#353839'],
     };
@@ -308,6 +310,25 @@ function insertarDataUsuariosCreados() {
     }
 
     document.getElementById('bodyTablaUsuariosCreados').innerHTML = `${res}`;
+}
+
+function insertarDataUsuariosConectados() {
+    let res = "";
+
+    for (var usuario in this.datos.usuariosConectados) {
+
+
+        res = res + `
+  <tr>
+      <td>${this.datos.usuariosConectados[usuario][0]}</td>
+      <td>${this.datos.usuariosConectados[usuario][1]}</td>
+      <td>${this.datos.usuariosConectados[usuario][2]}</td>
+  </tr>`;
+
+
+    }
+
+    document.getElementById('bodyTablaUsuariosConectados').innerHTML = `${res}`;
 }
 function insertarDataUsuariosDelSistema() {
     let res = "";
