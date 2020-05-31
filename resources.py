@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 # Script que consulta datos de la máquina anfitrión
-# Autor: Sebastian Montes. Jefferson Arenas, Luis Figueroa
+# Autor: Sebastian Montes, Jefferson Arenas, Luis Figueroa
 # Licencia GNU GPL v4
 
 import subprocess, re, sys, os
@@ -196,7 +196,8 @@ def getTopPSRAM():
 
 #Función que retorna el porcentaje de uso de cpu de la máquina basado en el comando top
 def getCPUUsagePercentage():
-    p = subprocess.Popen("top -n1 | head -n3 | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+    
+    p = subprocess.Popen("top -n2 | grep inact | tail -n1",stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
     p.wait()
     CPU = p.stdout.read().decode().strip()
     return round(100-float(re.sub(" +"," ",re.sub("inact",".", CPU).split(".")[0].strip()).split(" ")[7].replace(",",".")),1)
@@ -301,9 +302,9 @@ resultSet['totalSwap'] = getTotalSWAP()
 resultSet['particiones'] = getAllPartitions()
 resultSet['cpuCores'] = getCPUCores()
 resultSet['cpuFrec'] = getCPUFreq()
+resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["topProcesosCPU"] = getTopPSCPU()
 resultSet["topProcesosRAM"] = getTopPSRAM()
-resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["usoDeRAM"] = getRAMUsagePercentage()
 resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
 resultSet["usoDeAlmacenamientoTotal"] = getSpaceUsagePercentage()
