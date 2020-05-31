@@ -107,7 +107,7 @@ def getAllPartitions():
             particionesDict[particionRaw[0]]=int(particionRaw[1])
     return particionesDict
 
-# Función que retorna el total de almacenamiento SATA que tiene la máquina.
+# Función que retorna el total de almacenamiento SATA que tiene la máquina en GB.
 def getAllSpace():
 
     p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -120,7 +120,7 @@ def getAllSpace():
         particionesRaw =  particionesRaw.split(" ") 
         if('/sd' in particionesRaw[0]):
             total = total + int(particionesRaw[1])
-    return total
+    return round(total/1000,1)
 
 # Función que retorna el total de discos SATA que tiene la máquina.
 def getAllDisks():
@@ -217,8 +217,25 @@ def getAllPartitionsUsagePercentage():
     for particionRaw in particiones:
         particionRaw = particionRaw.split(" ")
         if('/sd' in particionRaw[0]):
-            particionesDict[particionRaw[0]]=int(particionRaw[4].replace("%",""))
+            particionesDict[particionRaw[0]]=round((int(particionRaw[2])/int(particionRaw[1]))*100,1)
     return particionesDict
+
+# Función que retorna el porcentaje de uso del espacio de la máquina
+def getSpaceUsagePercentage():
+
+    p = subprocess.Popen ("df -h -m", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    #Se espera que acabe el subproceso para mostrar la salida decodificada
+    p.wait()
+    particiones = re.sub(" +"," ", p.stdout.read().decode()).split("\n")
+
+    totalDeEspacio = 0
+    totalOcupado = 0
+    for particionRaw in particiones:
+        particionRaw = particionRaw.split(" ")
+        if('/sd' in particionRaw[0]):
+            totalDeEspacio = totalDeEspacio + int(particionRaw[1])
+            totalOcupado = totalOcupado + int(particionRaw[2])
+    return round((totalOcupado/totalDeEspacio)*100,1)
 
 resultSet = {}
 
@@ -240,6 +257,7 @@ resultSet["topProcesos"] = getTopPS()
 resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["usoDeRAM"] = getRAMUsagePercentage()
 resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
+resultSet["usoDeAlmacenamientoTotal"] = getSpaceUsagePercentage()
 resultSet["usoDeParticiones"] = getAllPartitionsUsagePercentage()
 resultSet["totalAlmacenamiento"] = getAllSpace()
 resultSet["totalParticiones"] = getAllDisks()

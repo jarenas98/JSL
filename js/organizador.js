@@ -1,8 +1,8 @@
 google.charts.load('current', { 'packages': ['corechart', "gauge"] });
 google.charts.setOnLoadCallback(dibujarGraficaParticiones);
 google.charts.setOnLoadCallback(dibujarGraficaUsoDeRam);
-google.charts.setOnLoadCallback(dibujarGraficaUsoDeDisco);
-google.charts.setOnLoadCallback(dibujarGraficaUsoDeCadaDisco);
+google.charts.setOnLoadCallback(dibujarGraficaUsoDeAlmacenamiento);
+google.charts.setOnLoadCallback(dibujarGraficaDeUsoDeParticiones);
 google.charts.setOnLoadCallback(dibujarGraficaTopProcesos);
 google.charts.setOnLoadCallback(dibujarGraficaUsoDeCPU);
 google.charts.setOnLoadCallback(dibujarGraficaUsoSwap);
@@ -11,7 +11,7 @@ google.charts.setOnLoadCallback(dibujarGraficaUsoSwap);
 var datos =
 
     //ZonaDeCambio+
-{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 42, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 3040, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 3, 'cpuFrec': 3591.682, 'topProcesos': {'2043': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '48.3', 'Tiempo de ejecución': '0:10'}, '1994': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '9.4', 'Tiempo de ejecución': '0:02'}, '2094': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '9.4', 'Tiempo de ejecución': '0:01'}, '2137': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '8.5', 'Tiempo de ejecución': '0:01'}, '2095': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/usr/share/code/code', 'Porcentaje de uso de CPU': '7.7', 'Tiempo de ejecución': '0:01'}}, 'usoDeCPU': 0.5, 'usoDeRAM': 38.7, 'usoDeSWAP': 0.0, 'usoDeDisco': {'/dev/sda1': 41}, 'fecha': 'Reporte generado el día 30 del mes 05 del año 2020, a las 02:43:47'}
+{'nombreEquipo': 'montes-VirtualBox', 'usuariosReales': {'1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}}, 'todosLosUsuarios': {'0': {'nombre': 'root', 'nombreCompleto': 'root'}, '1': {'nombre': 'daemon', 'nombreCompleto': 'daemon'}, '2': {'nombre': 'bin', 'nombreCompleto': 'bin'}, '3': {'nombre': 'sys', 'nombreCompleto': 'sys'}, '4': {'nombre': 'sync', 'nombreCompleto': 'sync'}, '5': {'nombre': 'games', 'nombreCompleto': 'games'}, '6': {'nombre': 'man', 'nombreCompleto': 'man'}, '7': {'nombre': 'lp', 'nombreCompleto': 'lp'}, '8': {'nombre': 'mail', 'nombreCompleto': 'mail'}, '9': {'nombre': 'news', 'nombreCompleto': 'news'}, '10': {'nombre': 'uucp', 'nombreCompleto': 'uucp'}, '13': {'nombre': 'proxy', 'nombreCompleto': 'proxy'}, '33': {'nombre': 'www-data', 'nombreCompleto': 'www-data'}, '34': {'nombre': 'backup', 'nombreCompleto': 'backup'}, '38': {'nombre': 'list', 'nombreCompleto': 'Mailing List Manager'}, '39': {'nombre': 'irc', 'nombreCompleto': 'ircd'}, '41': {'nombre': 'gnats', 'nombreCompleto': 'Gnats Bug-Reporting System (admin)'}, '65534': {'nombre': 'nobody', 'nombreCompleto': 'nobody'}, '100': {'nombre': 'systemd-network', 'nombreCompleto': 'systemd Network Management', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '101': {'nombre': 'systemd-resolve', 'nombreCompleto': 'systemd Resolver', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '102': {'nombre': 'syslog', 'nombreCompleto': ''}, '103': {'nombre': 'messagebus', 'nombreCompleto': ''}, '104': {'nombre': '_apt', 'nombreCompleto': ''}, '105': {'nombre': 'uuidd', 'nombreCompleto': ''}, '106': {'nombre': 'cups-pk-helper', 'nombreCompleto': 'user for cups-pk-helper service', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '107': {'nombre': 'kernoops', 'nombreCompleto': 'Kernel Oops Tracking Daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '108': {'nombre': 'rtkit', 'nombreCompleto': 'RealtimeKit', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '109': {'nombre': 'avahi-autoipd', 'nombreCompleto': 'Avahi autoip daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '110': {'nombre': 'usbmux', 'nombreCompleto': 'usbmux daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '111': {'nombre': 'systemd-coredump', 'nombreCompleto': 'systemd core dump processing', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '112': {'nombre': 'lightdm', 'nombreCompleto': 'Light Display Manager'}, '113': {'nombre': 'dnsmasq', 'nombreCompleto': 'dnsmasq', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '114': {'nombre': 'saned', 'nombreCompleto': ''}, '115': {'nombre': 'nm-openvpn', 'nombreCompleto': 'NetworkManager OpenVPN', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '116': {'nombre': 'avahi', 'nombreCompleto': 'Avahi mDNS daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '117': {'nombre': 'colord', 'nombreCompleto': 'colord colour management daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '118': {'nombre': 'speech-dispatcher', 'nombreCompleto': 'Speech Dispatcher', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '119': {'nombre': 'pulse', 'nombreCompleto': 'PulseAudio daemon', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '120': {'nombre': 'hplip', 'nombreCompleto': 'HPLIP system user', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '121': {'nombre': 'geoclue', 'nombreCompleto': ''}, '1000': {'nombre': 'montes', 'nombreCompleto': 'montes', 'noHab': '', 'telOficina': '', 'telCasa': ''}, '999': {'nombre': 'vboxadd', 'nombreCompleto': ''}}, 'cantidadUsuariosReales': 1, 'cantidadTotalUsuarios': 42, 'ipEquipo': '192.168.0.127', 'mac': '08:00:27:ee:75:8a', 'totalRAM': 4651, 'totalSwap': 969, 'particiones': {'/dev/sda1': 20029}, 'cpuCores': 4, 'cpuFrec': 3591.688, 'topProcesos': {'1491': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'cinnamon', 'Porcentaje de uso de CPU': '27.2', 'Tiempo de ejecución': '61:39'}, '7599': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'xreader', 'Porcentaje de uso de CPU': '9.6', 'Tiempo de ejecución': '0:04'}, '1741': {'usuarioPropietario': 'montes', 'Nombre del proceso': '/proc/self/exe', 'Porcentaje de uso de CPU': '8.3', 'Tiempo de ejecución': '18:53'}, '7381': {'usuarioPropietario': 'montes', 'Nombre del proceso': 'xreader', 'Porcentaje de uso de CPU': '2.7', 'Tiempo de ejecución': '0:07'}, '1119': {'usuarioPropietario': 'root', 'Nombre del proceso': '/usr/lib/xorg/Xorg', 'Porcentaje de uso de CPU': '2.5', 'Tiempo de ejecución': '5:49'}}, 'usoDeCPU': 11.9, 'usoDeRAM': 46.2, 'usoDeSWAP': 0.0, 'usoDeAlmacenamientoTotal': 38.1, 'usoDeParticiones': {'/dev/sda1': 38.1}, 'totalAlmacenamiento': 20.0, 'totalParticiones': 1, 'fecha': 'Reporte generado el día 30 del mes 05 del año 2020, a las 19:53:08'}
 
 
 // Método que se encarga de ejecutar los diferentes métodos
@@ -31,6 +31,10 @@ function main() {
     document.getElementById('corestotales').innerText = `${this.datos.cpuCores}`;
     // cambiar el contedido del CPU Frec
     document.getElementById('frecTotal').innerText = `${this.datos.cpuFrec} MHz`;
+
+    document.getElementById('campoTotalAlmacenamiento').innerText = this.datos.totalAlmacenamiento + " GB";
+
+    document.getElementById('campoTotaDiscos').innerText = `${this.datos.totalParticiones}`;
 
     document.getElementById('totalUsuariosCreados').innerText = `Usuarios creados - Total : ${this.datos.cantidadUsuariosReales}`;
 
@@ -114,7 +118,7 @@ function dibujarGraficaUsoSwap(){
 
     var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['CPU', { v: this.datos.usoDeSWAP, f: this.datos.usoDeSWAP+"%" }],
+        ['SWAP', { v: this.datos.usoDeSWAP, f: this.datos.usoDeSWAP+"%" }],
 
     ]);
 
@@ -161,27 +165,13 @@ function dibujarGraficaTopProcesos() {
 
     chart.draw(data, options);
 }
-function dibujarGraficaUsoDeDisco() {
+function dibujarGraficaUsoDeAlmacenamiento() {
 
-    const total_discos = Object.values(this.datos.particiones).reduce((a, b) => a + b, 0)
-
-    console.log(total_discos)
-
-
-    obj = this.datos.usoDeDisco
-    let uso_por_disco = []
-
-    for (const prop in obj) {
-        uso_por_disco.push((this.datos.usoDeDisco[prop] * this.datos.particiones[prop]) / 100)
-    }
-
-    const total_usado_discos = uso_por_disco.reduce((a, b) => a + b, 0)
-
-    const info = (total_usado_discos * 100) / total_discos
+   
 
     var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['Total', { v: info, f: info+"%" }],
+        ['HDDs', { v: this.datos.usoDeAlmacenamientoTotal, f: this.datos.usoDeAlmacenamientoTotal+"%" }],
 
     ]);
 
@@ -192,20 +182,20 @@ function dibujarGraficaUsoDeDisco() {
         minorTicks: 5
     };
 
-    var chart = new google.visualization.Gauge(document.getElementById('uso-de-disco'));
+    var chart = new google.visualization.Gauge(document.getElementById('uso-de-almacenamiento'));
 
     chart.draw(data, options);
 
 
 }
-function dibujarGraficaUsoDeCadaDisco() {
+function dibujarGraficaDeUsoDeParticiones() {
 
     let info = [['Label', 'Value']];
 
-    obj = this.datos.usoDeDisco
+    obj = this.datos.usoDeParticiones
 
     for (const prop in obj) {
-        info = info.concat([[prop, { v: this.datos.usoDeDisco[prop], f: this.datos.usoDeDisco[prop]+"%"}]])
+        info = info.concat([[prop, { v: this.datos.usoDeParticiones[prop], f: this.datos.usoDeParticiones[prop]+"%"}]])
     }
 
 
@@ -218,7 +208,7 @@ function dibujarGraficaUsoDeCadaDisco() {
         minorTicks: 5
     };
 
-    var chart = new google.visualization.Gauge(document.getElementById('uso-por-disco'));
+    var chart = new google.visualization.Gauge(document.getElementById('uso-por-particion'));
 
     chart.draw(data, options);
 
