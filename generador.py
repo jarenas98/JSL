@@ -49,7 +49,7 @@ organizador.close()
 
 print("Generando informe de gestión en PDF por favor espere...")
 # Se transforma el reporte a pdf
-p = subprocess.Popen ("wkhtmltopdf --javascript-delay 8000  " + nombreReporte + ".html " + nombreReporte + ".pdf", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+p = subprocess.Popen ("wkhtmltopdf --page-size 'Letter' --javascript-delay 8000  " + nombreReporte + ".html " + nombreReporte + ".pdf", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 #Se espera que acabe el subproceso para mostrar la salida decodificada
 p.wait()
 sys.stdout.write(p.stdout.read().decode())
