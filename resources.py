@@ -157,8 +157,8 @@ def getCPUFreq():
     return float(cpuFrec.strip())
 
 # Función que retorna un diccionario de diccionarios, la llave de cada diccionario es el PID y contiene información como
-# el dueño del proceso, el uso de CPU que está haciendo ese proceso y el tiempo de ejecución que lleva ese proceso.
-def getTopPS():
+# el dueño del proceso, el uso de CPU que está haciendo ese proceso.
+def getTopPSCPU():
 
     p = subprocess.Popen ("ps aux --sort -pcpu | head -n6 | tail -n5", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     p.wait()
@@ -171,7 +171,25 @@ def getTopPS():
         infoProceso["usuarioPropietario"] = procesoRaw[0]
         infoProceso["Nombre del proceso"] = procesoRaw[10]
         infoProceso["Porcentaje de uso de CPU"] = procesoRaw[2]
-        infoProceso["Tiempo de ejecución"] = procesoRaw[9]
+        procesosDict[procesoRaw[1]] = infoProceso
+    
+    return procesosDict
+
+# Función que retorna un diccionario de diccionarios, la llave de cada diccionario es el PID y contiene información como
+# el dueño del proceso, el uso de RAM que está haciendo ese proceso.
+def getTopPSRAM():
+
+    p = subprocess.Popen ("ps aux --sort -pmem | head -n6 | tail -n5", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    p.wait()
+    topProcesos = re.sub(" +"," ", p.stdout.read().decode().strip()).split("\n")
+
+    procesosDict={}
+    for procesoRaw in topProcesos:
+        procesoRaw = re.sub(" +"," ", procesoRaw).split(" ")
+        infoProceso={}
+        infoProceso["usuarioPropietario"] = procesoRaw[0]
+        infoProceso["Nombre del proceso"] = procesoRaw[10]
+        infoProceso["Porcentaje de uso de RAM"] = procesoRaw[3]
         procesosDict[procesoRaw[1]] = infoProceso
     
     return procesosDict
@@ -253,7 +271,8 @@ resultSet['totalSwap'] = getTotalSWAP()
 resultSet['particiones'] = getAllPartitions()
 resultSet['cpuCores'] = getCPUCores()
 resultSet['cpuFrec'] = getCPUFreq()
-resultSet["topProcesos"] = getTopPS()
+resultSet["topProcesosCPU"] = getTopPSCPU()
+resultSet["topProcesosRAM"] = getTopPSRAM()
 resultSet["usoDeCPU"] = getCPUUsagePercentage()
 resultSet["usoDeRAM"] = getRAMUsagePercentage()
 resultSet["usoDeSWAP"] = getSWAPUsagePercentage()
